@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ITU_ASAU_COLLEGE.Models;
 
 namespace ITU_ASAU_COLLEGE.Areas.Identity.Data;
 
@@ -18,4 +19,14 @@ public class ITU_ASAU_COLLEGEContext : IdentityDbContext<IdentityUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Course> Course { get; set; } = default!;
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Enrollment> Enrollment { get; set; } = default!;
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Notice> Notice { get; set; } = default!;
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Student> Student { get; set; } = default!;
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Teacher> Teacher { get; set; } = default!;
 }
