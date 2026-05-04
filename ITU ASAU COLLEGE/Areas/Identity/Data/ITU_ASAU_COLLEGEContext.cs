@@ -29,4 +29,6 @@ public DbSet<ITU_ASAU_COLLEGE.Models.Notice> Notice { get; set; } = default!;
 public DbSet<ITU_ASAU_COLLEGE.Models.Student> Student { get; set; } = default!;
 
 public DbSet<ITU_ASAU_COLLEGE.Models.Teacher> Teacher { get; set; } = default!;
+
+public DbSet<ITU_ASAU_COLLEGE.Models.Department> Department { get; set; } = default!;
 }

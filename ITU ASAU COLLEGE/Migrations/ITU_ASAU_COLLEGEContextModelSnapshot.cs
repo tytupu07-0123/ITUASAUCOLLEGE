@@ -63,6 +63,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<int>("Credits")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
@@ -72,9 +75,42 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasKey("CourseId");
 
+                    b.HasIndex("DepartmentId");
+
                     b.HasIndex("StudentId");
 
                     b.ToTable("Course");
+                });
+
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CourseId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HeadOfDepartment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfStudents")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfTeachers")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Enrollment", b =>
@@ -151,6 +187,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("DateOfEnrollment")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -163,6 +202,8 @@ namespace ITU_ASAU_COLLEGE.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("StudentId");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("StudentId1");
 
@@ -183,11 +224,16 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TeacherName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TeacherId");
+
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Teacher");
                 });
@@ -426,6 +472,10 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
                 {
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Department", null)
+                        .WithMany("Courses")
+                        .HasForeignKey("DepartmentId");
+
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Student", null)
                         .WithMany("Courses")
                         .HasForeignKey("StudentId");
@@ -442,9 +492,20 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Student", b =>
                 {
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Department", null)
+                        .WithMany("Students")
+                        .HasForeignKey("DepartmentId");
+
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Student", null)
                         .WithMany("Students")
                         .HasForeignKey("StudentId1");
+                });
+
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Teacher", b =>
+                {
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Department", null)
+                        .WithMany("Teachers")
+                        .HasForeignKey("DepartmentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -496,6 +557,15 @@ namespace ITU_ASAU_COLLEGE.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>
+                {
+                    b.Navigation("Courses");
+
+                    b.Navigation("Students");
+
+                    b.Navigation("Teachers");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Student", b =>

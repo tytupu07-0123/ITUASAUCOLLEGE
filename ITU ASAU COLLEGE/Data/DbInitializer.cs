@@ -3,14 +3,14 @@ using ITU_ASAU_COLLEGE.Models;
 
 namespace ITU_ASAU_COLLEGE.Data
 {
-    public class DbInitializer
+    public class DbInitializer : DropCreatedDatabaseIfModelChanges<ITU_ASAU_COLLEGEContext>
     {
-        public static void Initialize(ITU_ASAU_COLLEGEContext context) 
+        public static void Initialize(ITU_ASAU_COLLEGEContext context)
         {
             context.Database.EnsureCreated();
 
             //Look for any students.
-            if (context.Student.Any()) 
+            if (context.Students.Any())
             {
                 return; //DB has been seeded
 
@@ -41,9 +41,9 @@ namespace ITU_ASAU_COLLEGE.Data
                new Student{FirstName="Matthew",LastName="Lee",DateOfEnrollment=DateTime.Parse("2022-02-14"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-04-04")}
 
             };
-            foreach (Student s in students) 
+            foreach (Student s in students)
             {
-                context.Student.Add(s);
+                context.Students.Add(s);
             }
             context.SaveChanges();
 
@@ -71,9 +71,9 @@ namespace ITU_ASAU_COLLEGE.Data
                 new Course{CourseId=20,Title="Literature",Credits=3},
                 new Course{CourseId=21,Title="Drama",Credits=2}
             };
-            foreach (Course c in courses) 
+            foreach (Course c in courses)
             {
-                context.Course.Add(c);
+                context.Courses.Add(c);
             }
             context.SaveChanges();
 
@@ -101,11 +101,45 @@ namespace ITU_ASAU_COLLEGE.Data
                 new Enrollment{EnrollmentDate=DateTime.Parse("2006-08-23"),CourseName="Sociology",StudentName="Evelyn Martin",DateOfBirth=DateTime.Parse("2004-12-10"),Class=12},
                 new Enrollment{EnrollmentDate=DateTime.Parse("2009-02-14"),CourseName="Literature",StudentName="Matthew Lee",DateOfBirth=DateTime.Parse("2007-04-04"),Class=9}
             };
-            foreach(Enrollment e in enrollments) 
+            foreach (Enrollment e in enrollments)
             {
-                context.Enrollment.Add(e);
+                context.Enrollments.Add(e);
+            }
+            context.SaveChanges();
+
+            var department = new Department[]
+            {
+                new Department{Name="Science",CourseId="1,2,3,4,5,6,7,8,9",HeadOfDepartment="Dr. Smith",NumberOfTeachers=10,NumberOfStudents=200},
+                new Department{Name="Mathematics",CourseId="10,11,12,13,14",HeadOfDepartment="Dr. Johnson",NumberOfTeachers=8,NumberOfStudents=150},
+                new Department{Name="English",CourseId="15,16,17,18",HeadOfDepartment="Dr. Williams",NumberOfTeachers=7,NumberOfStudents=140},
+                new Department{Name="History",CourseId="19,20,21",HeadOfDepartment="Dr. Brown",NumberOfTeachers=6,NumberOfStudents=120},
+                new Department{Name="Geography",CourseId="22,23,24",HeadOfDepartment="Dr. Jones",NumberOfTeachers=5,NumberOfStudents=100},
+                new Department{Name="Physics",CourseId="25,26,27,28",HeadOfDepartment="Dr. Garcia",NumberOfTeachers=9,NumberOfStudents=130},
+                new Department{Name="Chemistry",CourseId="29,30,31,32",HeadOfDepartment="Dr. Miller",NumberOfTeachers=8,NumberOfStudents=125},
+                new Department{Name="Biology",CourseId="33,34,35,36",HeadOfDepartment="Dr. Davis",NumberOfTeachers=10,NumberOfStudents=180},
+                new Department{Name="Computer Science",CourseId="37,38,39,40,41",HeadOfDepartment="Dr. Rodriguez",NumberOfTeachers=12,NumberOfStudents=220},
+                new Department{Name="Economics",CourseId="42,43,44",HeadOfDepartment="Dr. Martinez",NumberOfTeachers=6,NumberOfStudents=110},
+                new Department{Name="Business Studies",CourseId="45,46,47,48",HeadOfDepartment="Dr. Hernandez",NumberOfTeachers=9,NumberOfStudents=170},
+                new Department{Name="Accounting",CourseId="49,50,51",HeadOfDepartment="Dr. Lopez",NumberOfTeachers=5,NumberOfStudents=90},
+                new Department{Name="Art",CourseId="52,53,54",HeadOfDepartment="Dr. Gonzalez",NumberOfTeachers=4,NumberOfStudents=80},
+                new Department{Name="Music",CourseId="55,56,57",HeadOfDepartment="Dr. Wilson",NumberOfTeachers=3,NumberOfStudents=70},
+                new Department{Name="Physical Education",CourseId="58,59,60",HeadOfDepartment="Dr. Anderson",NumberOfTeachers=6,NumberOfStudents=200},
+                new Department{Name="Philosophy",CourseId="61,62",HeadOfDepartment="Dr. Thomas",NumberOfTeachers=3,NumberOfStudents=60},
+                new Department{Name="Sociology",CourseId="63,64,65",HeadOfDepartment="Dr. Taylor",NumberOfTeachers=5,NumberOfStudents=100},
+                new Department{Name="Psychology",CourseId="66,67,68",HeadOfDepartment="Dr. Moore",NumberOfTeachers=7,NumberOfStudents=130},
+                new Department{Name="Political Science",CourseId="69,70,71",HeadOfDepartment="Dr. Jackson",NumberOfTeachers=4,NumberOfStudents=85},
+                new Department{Name="Environmental Science",CourseId="72,73,74,75",HeadOfDepartment="Dr. Martin",NumberOfTeachers=6,NumberOfStudents=115},
+                new Department{Name="Engineering",CourseId="76,77,78,79,80",HeadOfDepartment="Dr. Lee",NumberOfTeachers=11,NumberOfStudents=210},
+            };
+            foreach (Department d in department)
+            {
+                context.Departments.Add(d);
             }
             context.SaveChanges();
         }
+    }
+
+    public class DropCreatedDatabaseIfModelChanges<T>
+    {
     }
 }
