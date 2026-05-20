@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ITU_ASAU_COLLEGE.Models.Student>
+@model IEnumerable<ITU_ASAU_COLLEGE.Models.Student>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,6 +19,9 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DateOfEnrollment)
             </th>
             <th>
@@ -30,6 +33,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateOfBirth)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,22 +49,34 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(model => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(model => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfEnrollment)
+                @Html.DisplayFor(model => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClassCode)
+                @Html.DisplayFor(model => item.DateOfEnrollment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseId)
+                @Html.DisplayFor(model => item.ClassCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
+                @Html.DisplayFor(model => item.CourseId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Enrollments)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Students)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Courses)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |

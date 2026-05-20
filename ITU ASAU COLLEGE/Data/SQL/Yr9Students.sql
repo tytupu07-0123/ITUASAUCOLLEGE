@@ -1,0 +1,1 @@
+﻿SELECT * FROM Student WHERE Classcode = 9;

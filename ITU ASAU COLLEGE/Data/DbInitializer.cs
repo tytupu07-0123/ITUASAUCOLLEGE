@@ -18,27 +18,27 @@ namespace ITU_ASAU_COLLEGE.Data
 
             var students = new Student[]
             {
-               new Student{FirstName="John",LastName="Doe",DateOfEnrollment=DateTime.Parse("2020-09-01"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2005-05-15")},
-               new Student{FirstName="Emma",LastName="Johnson",DateOfEnrollment=DateTime.Parse("2021-02-10"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-03-15")},
-               new Student{FirstName="Liam",LastName="Williams",DateOfEnrollment=DateTime.Parse("2020-01-20"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-07-22")},
-               new Student{FirstName="Olivia",LastName="Brown",DateOfEnrollment=DateTime.Parse("2019-09-01"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-11-05")},
-               new Student{FirstName="Noah",LastName="Jones",DateOfEnrollment=DateTime.Parse("2022-04-12"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-06-18")},
-               new Student{FirstName="Ava",LastName="Garcia",DateOfEnrollment=DateTime.Parse("2021-07-30"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-09-09")},
-               new Student{FirstName="Elijah",LastName="Miller",DateOfEnrollment=DateTime.Parse("2020-03-14"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-12-01")},
-               new Student{FirstName="Sophia",LastName="Davis",DateOfEnrollment=DateTime.Parse("2019-11-25"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-08-19")},
-               new Student{FirstName="James",LastName="Rodriguez",DateOfEnrollment=DateTime.Parse("2022-01-05"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-02-11")},
-               new Student{FirstName="Isabella",LastName="Martinez",DateOfEnrollment=DateTime.Parse("2021-05-17"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-10-23")},
-               new Student{FirstName="Benjamin",LastName="Hernandez",DateOfEnrollment=DateTime.Parse("2020-08-09"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-04-30")},
-               new Student{FirstName="Mia",LastName="Lopez",DateOfEnrollment=DateTime.Parse("2019-02-27"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-01-14")},
-               new Student{FirstName="Lucas",LastName="Gonzalez",DateOfEnrollment=DateTime.Parse("2022-06-21"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-07-07")},
-               new Student{FirstName="Charlotte",LastName="Wilson",DateOfEnrollment=DateTime.Parse("2021-03-03"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-05-29")},
-               new Student{FirstName="Henry",LastName="Anderson",DateOfEnrollment=DateTime.Parse("2020-10-15"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-09-12")},
-               new Student{FirstName="Amelia",LastName="Thomas",DateOfEnrollment=DateTime.Parse("2019-06-08"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-03-03")},
-               new Student{FirstName="Alexander",LastName="Taylor",DateOfEnrollment=DateTime.Parse("2022-09-01"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-11-20")},
-               new Student{FirstName="Harper",LastName="Moore",DateOfEnrollment=DateTime.Parse("2021-12-11"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-06-16")},
-               new Student{FirstName="Daniel",LastName="Jackson",DateOfEnrollment=DateTime.Parse("2020-05-19"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-02-25")},
-               new Student{FirstName="Evelyn",LastName="Martin",DateOfEnrollment=DateTime.Parse("2019-08-23"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-12-10")},
-               new Student{FirstName="Matthew",LastName="Lee",DateOfEnrollment=DateTime.Parse("2022-02-14"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-04-04")}
+               new Student{FirstName="John",LastName="Doe",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-09-01"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2005-05-15")},
+               new Student{FirstName="Emma",LastName="Johnson",Gender="Female",DateOfEnrollment=DateTime.Parse("2021-02-10"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-03-15")},
+               new Student{FirstName="Liam",LastName="Williams",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-01-20"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-07-22")},
+               new Student{FirstName="Olivia",LastName="Brown",Gender="Female",DateOfEnrollment=DateTime.Parse("2019-09-01"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-11-05")},
+               new Student{FirstName="Noah",LastName="Jones",Gender="Male",DateOfEnrollment=DateTime.Parse("2022-04-12"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-06-18")},
+               new Student{FirstName="Ava",LastName="Garcia",Gender="Female",DateOfEnrollment=DateTime.Parse("2021-07-30"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-09-09")},
+               new Student{FirstName="Elijah",LastName="Miller",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-03-14"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-12-01")},
+               new Student{FirstName="Sophia",LastName="Davis",Gender="Female",DateOfEnrollment=DateTime.Parse("2019-11-25"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-08-19")},
+               new Student{FirstName="James",LastName="Rodriguez",Gender="Male",DateOfEnrollment=DateTime.Parse("2022-01-05"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-02-11")},
+               new Student{FirstName="Isabella",LastName="Martinez",Gender="Female",DateOfEnrollment=DateTime.Parse("2021-05-17"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-10-23")},
+               new Student{FirstName="Benjamin",LastName="Hernandez",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-08-09"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-04-30")},
+               new Student{FirstName="Mia",LastName="Lopez",Gender="Female",DateOfEnrollment=DateTime.Parse("2019-02-27"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-01-14")},
+               new Student{FirstName="Lucas",LastName="Gonzalez",Gender="Male",DateOfEnrollment=DateTime.Parse("2022-06-21"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-07-07")},
+               new Student{FirstName="Charlotte",LastName="Wilson",Gender="Female",DateOfEnrollment=DateTime.Parse("2021-03-03"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-05-29")},
+               new Student{FirstName="Henry",LastName="Anderson",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-10-15"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-09-12")},
+               new Student{FirstName="Amelia",LastName="Thomas",Gender="Female",DateOfEnrollment=DateTime.Parse("2019-06-08"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-03-03")},
+               new Student{FirstName="Alexander",LastName="Taylor",Gender="Male",DateOfEnrollment=DateTime.Parse("2022-09-01"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-11-20")},
+               new Student{FirstName="Harper",LastName="Moore",Gender="Female",DateOfEnrollment=DateTime.Parse("2021-12-11"),ClassCode=10,CourseId=2,DateOfBirth=DateTime.Parse("2006-06-16")},
+               new Student{FirstName="Daniel",LastName="Jackson",Gender="Male",DateOfEnrollment=DateTime.Parse("2020-05-19"),ClassCode=11,CourseId=3,DateOfBirth=DateTime.Parse("2005-02-25")},
+               new Student{FirstName="Evelyn",LastName="Martin",Gender="Female",DateOfEnrollment=DateTime.Parse("2019-08-23"),ClassCode=12,CourseId=4,DateOfBirth=DateTime.Parse("2004-12-10")},
+               new Student{FirstName="Matthew",LastName="Lee",Gender="Male",DateOfEnrollment=DateTime.Parse("2022-02-14"),ClassCode=9,CourseId=1,DateOfBirth=DateTime.Parse("2007-04-04")}
 
             };
             foreach (Student s in students)

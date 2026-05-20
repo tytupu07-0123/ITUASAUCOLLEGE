@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using static ITU_ASAU_COLLEGE.Models.Enrollment;
 
 namespace ITU_ASAU_COLLEGE.Models
@@ -8,6 +10,7 @@ namespace ITU_ASAU_COLLEGE.Models
         public int StudentId { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
+        public required string Gender { get; set; }
         public DateTime DateOfEnrollment { get; set; }
         public int ClassCode { get; set; }
         //Data Annotations to only allow "Yr 9, Yr 10, Yr 11, Yr 12" in the ClassCode property

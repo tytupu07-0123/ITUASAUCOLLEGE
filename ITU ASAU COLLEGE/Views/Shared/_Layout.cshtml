@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ITU_ASAU_COLLEGE.styles.css" asp-append-version="true" />
 </head>
-<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -21,16 +20,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-blue" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-blue" asp-area="" asp-controller="AboutUs" asp-action="Index">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Enrollment" asp-action="Index">Enrollment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Notice" asp-action="Index">Notice</a>
+                            <a class="nav-link text-blue" asp-area="" asp-controller="Notice" asp-action="Index">Notice</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />    
@@ -43,8 +39,9 @@
             @RenderBody()
         </main>
     </div>
+</html>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-bottom footer text-muted">
         <div class="container">
             &copy; 2026 - ITU_ASAU_COLLEGE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -53,5 +50,4 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
 </html>

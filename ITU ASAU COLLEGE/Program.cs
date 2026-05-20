@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using ITU_ASAU_COLLEGE.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLEGEContextConnection") ?? throw new InvalidOperationException("Connection string 'ITU_ASAU_COLLEGEContextConnection' not found.");;
 
@@ -13,6 +15,20 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ITU_ASAU_COLLEGEContext>();
+        DbInitializer.Initialize(context);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
