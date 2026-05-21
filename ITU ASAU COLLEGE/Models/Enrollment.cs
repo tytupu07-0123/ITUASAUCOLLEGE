@@ -2,22 +2,42 @@
 
 namespace ITU_ASAU_COLLEGE.Models
 {
+    public enum CourseName
+    {
+        English,
+        Mathematics,
+        Science,
+        Biology,
+        Chemistry,
+        Physics,
+        History,
+        Geography,
+        [Display(Name = "Business Studies")]
+        BusinessStudies,
+        Accounting,
+        Economics,
+        [Display(Name = "Social Studies")]
+        SocialStudies,
+        [Display(Name = "Computer Studies")]
+        ComputerStudies,
+        [Display(Name = "Health Education")]
+        HealthEducation,
+        [Display(Name = "Food And Textiles")]
+        FoodAndTextiles,
+        [Display(Name = "Visual Arts")]
+        VisualArts,
+        [Display(Name = "Design Technology")]
+        DesignTechnology,
+        [Display(Name = "Agriculture Science")]
+        AgricultureScience,
+        [Display(Name = "Samoan Studies")]
+        SamoanStudies,
+    }
     public class Enrollment
     {
         public int EnrollmentId { get; set; }
         public DateTime EnrollmentDate { get; set; }
-        public required string CourseName { get; set; }
-        //Data Annotations to only allow "English, Communication English, Mathematics, Genegal Mathematics,Science, Biology,Chemistry, Pysics, History, Geography, Business Studies, Accounting, Economics, Social Studies, Computer Studies, Health Education, Food And Textiles, Visual Arts, Design Technology, Agriculture Science, Samoan" in the CourseName property
-        [Display(Name = "If Yr 9 enter only a max of 8 subjects or else enter only 6 subjects")]
-        public required string StudentName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-
-        public int Class { get; set; }
-        //Data Annotations to only allow "Yr 9, Yr 10, Yr 11, Yr 12" in the Class property
-        public ICollection<Student>? Student { get; set; }
-        public ICollection<Course>? Course { get; set; }
-
+        [Display(Name = "Course Name")]
+        public required CourseName CourseName { get; set; }
     }
 }

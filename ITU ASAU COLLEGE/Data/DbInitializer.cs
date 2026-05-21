@@ -1,5 +1,6 @@
 ﻿using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITU_ASAU_COLLEGE.Data
 {
@@ -7,10 +8,10 @@ namespace ITU_ASAU_COLLEGE.Data
     {
         public static void Initialize(ITU_ASAU_COLLEGEContext context)
         {
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
 
             //Look for any students.
-            if (context.Students.Any())
+            if (context.Student.Any())
             {
                 return; //DB has been seeded
 
@@ -43,7 +44,7 @@ namespace ITU_ASAU_COLLEGE.Data
             };
             foreach (Student s in students)
             {
-                context.Students.Add(s);
+                context.Student.Add(s);
             }
             context.SaveChanges();
 
@@ -73,7 +74,7 @@ namespace ITU_ASAU_COLLEGE.Data
             };
             foreach (Course c in courses)
             {
-                context.Courses.Add(c);
+                context.Course.Add(c);
             }
             context.SaveChanges();
 
@@ -103,7 +104,7 @@ namespace ITU_ASAU_COLLEGE.Data
             };
             foreach (Enrollment e in enrollments)
             {
-                context.Enrollments.Add(e);
+                context.Enrollment.Add(e);
             }
             context.SaveChanges();
 
@@ -133,7 +134,7 @@ namespace ITU_ASAU_COLLEGE.Data
             };
             foreach (Department d in department)
             {
-                context.Departments.Add(d);
+                context.Department.Add(d);
             }
             context.SaveChanges();
         }

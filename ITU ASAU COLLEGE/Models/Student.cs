@@ -5,25 +5,34 @@ using static ITU_ASAU_COLLEGE.Models.Enrollment;
 
 namespace ITU_ASAU_COLLEGE.Models
 {
+    public enum ClassCode
+    {
+        [Display(Name = "Yr 9")]
+        Yr9,
+        [Display(Name = "Yr 10")]
+        Yr10,
+        [Display(Name = "Yr 11")]
+        Yr11,
+        [Display(Name = "Yr 12")]
+        Yr12,
+
+    }
     public class Student
     {
         public int StudentId { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required string Gender { get; set; }
-        public DateTime DateOfEnrollment { get; set; }
+        [Display(Name = "Class Code")]
         public int ClassCode { get; set; }
-        //Data Annotations to only allow "Yr 9, Yr 10, Yr 11, Yr 12" in the ClassCode property
-        public int CourseId { get; set; }
+        
         public DateTime DateOfBirth { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         [Required]
 
         public ICollection<Enrollment>? Enrollments { get; set; }
-        public ICollection<Student>? Students { get; set; }
-        public ICollection<Course>? Courses { get; set; }
+
     }
+
+
 }
-
-
-

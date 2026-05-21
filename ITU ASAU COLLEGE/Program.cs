@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLEGEContextConnection") ?? throw new InvalidOperationException("Connection string 'ITU_ASAU_COLLEGEContextConnection' not found.");;
 
