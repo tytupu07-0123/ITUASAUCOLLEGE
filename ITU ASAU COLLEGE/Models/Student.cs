@@ -24,7 +24,7 @@ namespace ITU_ASAU_COLLEGE.Models
         public required string LastName { get; set; }
         public required string Gender { get; set; }
         [Display(Name = "Class Code")]
-        public int ClassCode { get; set; }
+        public ClassCode ClassCode { get; set; }
         
         public DateTime DateOfBirth { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
