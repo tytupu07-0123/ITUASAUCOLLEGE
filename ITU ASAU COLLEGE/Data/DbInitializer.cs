@@ -60,7 +60,7 @@ namespace ITU_ASAU_COLLEGE.Data
                 new Course{CourseId=8,Title="Biology",Credits=4},
                 new Course{CourseId=9,Title="Computer Science",Credits=5},
                 new Course{CourseId=10,Title="Physical Education",Credits=2},
-                new Course{CourseId=11,Title="Art",Credits=2},
+                new Course{CourseId=11,Title="Visual Art",Credits=2},
                 new Course{CourseId=12,Title="Music",Credits=2},
                 new Course{CourseId=13,Title="Economics",Credits=3},
                 new Course{CourseId=14,Title="Business Studies",Credits=3},
