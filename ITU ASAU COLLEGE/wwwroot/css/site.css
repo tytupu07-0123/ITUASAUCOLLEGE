@@ -55,6 +55,8 @@ main {
     flex: 1;
 }
 footer {
+    background-color: #f8f9fa;
+    position: relative;
     margin-top: auto;
     padding: 15px 0;
     border-top: 1px solid #ddd;
