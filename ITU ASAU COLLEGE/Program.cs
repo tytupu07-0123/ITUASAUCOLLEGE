@@ -30,15 +30,6 @@ using(var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred seeding the DB.");
     }
 }
-builder.Services.AddDefaultIdentity<ITU_ASAU_COLLEGEUser>()
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>();
-
-using (var scope = app.Services.CreateScope()) 
-{
-    var services = scope.ServiceProvider;
-    await RoleInitializer.SeedRoles(services);
-}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -63,7 +54,3 @@ app.MapControllerRoute(
 
 
 app.Run();
-
-internal class ITU_ASAU_COLLEGEUser : IdentityUser
-{
-}
