@@ -22,36 +22,6 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CourseEnrollment", b =>
-                {
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EnrollmentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CourseId", "EnrollmentId");
-
-                    b.HasIndex("EnrollmentId");
-
-                    b.ToTable("CourseEnrollment");
-                });
-
-            modelBuilder.Entity("EnrollmentStudent", b =>
-                {
-                    b.Property<int>("EnrollmentsEnrollmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EnrollmentsEnrollmentId", "StudentId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("EnrollmentStudent");
-                });
-
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
                 {
                     b.Property<int>("CourseId")
@@ -66,9 +36,6 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -76,8 +43,6 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.HasKey("CourseId");
 
                     b.HasIndex("DepartmentId");
-
-                    b.HasIndex("StudentId");
 
                     b.ToTable("Course");
                 });
@@ -121,24 +86,26 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnrollmentId"));
 
-                    b.Property<int>("Class")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CourseName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CourseName")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("CouseId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("StudentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
 
                     b.HasKey("EnrollmentId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Enrollment");
                 });
@@ -178,13 +145,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<int>("ClassCode")
                         .HasColumnType("int");
 
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateOfEnrollment")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("DepartmentId")
@@ -202,14 +163,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StudentId1")
-                        .HasColumnType("int");
-
                     b.HasKey("StudentId");
 
                     b.HasIndex("DepartmentId");
-
-                    b.HasIndex("StudentId1");
 
                     b.ToTable("Student");
                 });
@@ -444,45 +400,30 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CourseEnrollment", b =>
-                {
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Course", null)
-                        .WithMany()
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Enrollment", null)
-                        .WithMany()
-                        .HasForeignKey("EnrollmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EnrollmentStudent", b =>
-                {
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Enrollment", null)
-                        .WithMany()
-                        .HasForeignKey("EnrollmentsEnrollmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Student", null)
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
                 {
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Department", null)
                         .WithMany("Courses")
                         .HasForeignKey("DepartmentId");
+                });
 
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Student", null)
-                        .WithMany("Courses")
-                        .HasForeignKey("StudentId");
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Enrollment", b =>
+                {
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Course", "Course")
+                        .WithMany("Enrollment")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Student", "Student")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Notice", b =>
@@ -499,10 +440,6 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Department", null)
                         .WithMany("Students")
                         .HasForeignKey("DepartmentId");
-
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Student", null)
-                        .WithMany("Students")
-                        .HasForeignKey("StudentId1");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Teacher", b =>
@@ -563,6 +500,11 @@ namespace ITU_ASAU_COLLEGE.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
+                {
+                    b.Navigation("Enrollment");
+                });
+
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>
                 {
                     b.Navigation("Courses");
@@ -574,9 +516,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Student", b =>
                 {
-                    b.Navigation("Courses");
-
-                    b.Navigation("Students");
+                    b.Navigation("Enrollments");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Teacher", b =>

@@ -36,8 +36,12 @@ namespace ITU_ASAU_COLLEGE.Models
     public class Enrollment
     {
         public int EnrollmentId { get; set; }
+        public int CouseId { get; set; }
+        public int StudentId { get; set; }
         public DateTime EnrollmentDate { get; set; }
         [Display(Name = "Course Name")]
         public required CourseName CourseName { get; set; }
+        public Course Course { get; set; }
+        public Student Student { get; set; }
     }
 }
