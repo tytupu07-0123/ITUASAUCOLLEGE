@@ -86,19 +86,16 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnrollmentId"));
 
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<int>("CourseName")
                         .HasColumnType("int");
 
-                    b.Property<int>("CouseId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("EnrollmentId");
@@ -410,16 +407,12 @@ namespace ITU_ASAU_COLLEGE.Migrations
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Enrollment", b =>
                 {
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Course", "Course")
-                        .WithMany("Enrollment")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Enrollments")
+                        .HasForeignKey("CourseId");
 
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Student", "Student")
                         .WithMany("Enrollments")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentId");
 
                     b.Navigation("Course");
 
@@ -502,7 +495,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
                 {
-                    b.Navigation("Enrollment");
+                    b.Navigation("Enrollments");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>

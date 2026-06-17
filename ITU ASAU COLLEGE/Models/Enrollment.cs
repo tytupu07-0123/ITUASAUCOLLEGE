@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITU_ASAU_COLLEGE.Models
 {
@@ -36,8 +37,10 @@ namespace ITU_ASAU_COLLEGE.Models
     public class Enrollment
     {
         public int EnrollmentId { get; set; }
-        public int CouseId { get; set; }
-        public int StudentId { get; set; }
+        [ForeignKey("Course")]
+        public int ?CourseId { get; set; }
+        [ForeignKey("Student")]
+        public int ?StudentId { get; set; }
         public DateTime EnrollmentDate { get; set; }
         [Display(Name = "Course Name")]
         public required CourseName CourseName { get; set; }
