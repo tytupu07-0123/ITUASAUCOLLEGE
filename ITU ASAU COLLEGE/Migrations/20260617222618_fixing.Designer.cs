@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITU_ASAU_COLLEGE.Migrations
 {
     [DbContext(typeof(ITU_ASAU_COLLEGEContext))]
-    [Migration("20260617002228_fk")]
-    partial class fk
+    [Migration("20260617222618_fixing")]
+    partial class fixing
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,21 +89,21 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnrollmentId"));
 
-                    b.Property<int>("CourseName")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CouseId")
+                    b.Property<int>("CourseName")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("EnrollmentId");
 
-                    b.HasIndex("CouseId");
+                    b.HasIndex("CourseId");
 
                     b.HasIndex("StudentId");
 
@@ -411,15 +411,11 @@ namespace ITU_ASAU_COLLEGE.Migrations
                 {
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Course", "Course")
                         .WithMany("Enrollments")
-                        .HasForeignKey("CouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseId");
 
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Student", "Student")
                         .WithMany("Enrollments")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentId");
 
                     b.Navigation("Course");
 
