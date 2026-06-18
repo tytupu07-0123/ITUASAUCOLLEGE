@@ -8,6 +8,5 @@
         public int ClassCode { get; set; }
 
         public ICollection<Notice>? Notice { get; set; }
-
     }
 }

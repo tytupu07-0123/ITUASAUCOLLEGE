@@ -9,14 +9,19 @@ var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLE
 
 builder.Services.AddDbContext<ITU_ASAU_COLLEGEContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
-using(var scope = app.Services.CreateScope())
+// Seed the database.
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try

@@ -80,30 +80,30 @@ namespace ITU_ASAU_COLLEGE.Data
             context.SaveChanges();
 
             var enrollments = new Enrollment[]
-      {
-    new Enrollment{StudentId=1,CourseId=1,EnrollmentDate=DateTime.Parse("2008-02-15"),CourseName=CourseName.English},
-    new Enrollment{StudentId=2,CourseId=2,EnrollmentDate=DateTime.Parse("2007-01-20"),CourseName=CourseName.Mathematics},
-    new Enrollment{StudentId=3,CourseId=3,EnrollmentDate=DateTime.Parse("2006-09-01"),CourseName=CourseName.Science},
-    new Enrollment{StudentId=4,CourseId=8,EnrollmentDate=DateTime.Parse("2009-04-12"),CourseName=CourseName.Biology},
-    new Enrollment{StudentId=5,CourseId=7,EnrollmentDate=DateTime.Parse("2008-07-30"),CourseName=CourseName.Chemistry},
-    new Enrollment{StudentId=6,CourseId=6,EnrollmentDate=DateTime.Parse("2007-03-14"),CourseName=CourseName.Physics},
-    new Enrollment{StudentId=7,CourseId=4,EnrollmentDate=DateTime.Parse("2006-11-25"),CourseName=CourseName.History},
-    new Enrollment{StudentId=8,CourseId=5,EnrollmentDate=DateTime.Parse("2009-01-05"),CourseName=CourseName.Geography},
-    new Enrollment{StudentId=9,CourseId=14,EnrollmentDate=DateTime.Parse("2008-05-17"),CourseName=CourseName.BusinessStudies},
-    new Enrollment{StudentId=10,CourseId=15,EnrollmentDate=DateTime.Parse("2007-08-09"),CourseName=CourseName.Accounting},
-    new Enrollment{StudentId=11,CourseId=13,EnrollmentDate=DateTime.Parse("2006-02-27"),CourseName=CourseName.Economics},
+            {
+                new Enrollment{StudentId=1,CourseId=1,EnrollmentDate=DateTime.Parse("2008-02-15"),CourseName=CourseName.English},
+                new Enrollment{StudentId=2,CourseId=2,EnrollmentDate=DateTime.Parse("2007-01-20"),CourseName=CourseName.Mathematics},
+                new Enrollment{StudentId=3,CourseId=3,EnrollmentDate=DateTime.Parse("2006-09-01"),CourseName=CourseName.Science},
+                new Enrollment{StudentId=4,CourseId=8,EnrollmentDate=DateTime.Parse("2009-04-12"),CourseName=CourseName.Biology},
+                new Enrollment{StudentId=5,CourseId=7,EnrollmentDate=DateTime.Parse("2008-07-30"),CourseName=CourseName.Chemistry},
+                new Enrollment{StudentId=6,CourseId=6,EnrollmentDate=DateTime.Parse("2007-03-14"),CourseName=CourseName.Physics},
+                new Enrollment{StudentId=7,CourseId=4,EnrollmentDate=DateTime.Parse("2006-11-25"),CourseName=CourseName.History},
+                new Enrollment{StudentId=8,CourseId=5,EnrollmentDate=DateTime.Parse("2009-01-05"),CourseName=CourseName.Geography},
+                new Enrollment{StudentId=9,CourseId=14,EnrollmentDate=DateTime.Parse("2008-05-17"),CourseName=CourseName.BusinessStudies},
+                new Enrollment{StudentId=10,CourseId=15,EnrollmentDate=DateTime.Parse("2007-08-09"),CourseName=CourseName.Accounting},
+                new Enrollment{StudentId=11,CourseId=13,EnrollmentDate=DateTime.Parse("2006-02-27"),CourseName=CourseName.Economics},
 
-    // These subjects don't exist in your Course table, so map them to related courses
-    new Enrollment{StudentId=12,CourseId=19,EnrollmentDate=DateTime.Parse("2009-06-21"),CourseName=CourseName.SocialStudies},
-    new Enrollment{StudentId=13,CourseId=9,EnrollmentDate=DateTime.Parse("2008-03-03"),CourseName=CourseName.ComputerStudies},
-    new Enrollment{StudentId=14,CourseId=10,EnrollmentDate=DateTime.Parse("2007-10-15"),CourseName=CourseName.HealthEducation},
-    new Enrollment{StudentId=15,CourseId=11,EnrollmentDate=DateTime.Parse("2006-06-08"),CourseName=CourseName.FoodAndTextiles},
-    new Enrollment{StudentId=16,CourseId=11,EnrollmentDate=DateTime.Parse("2009-09-01"),CourseName=CourseName.VisualArts},
-    new Enrollment{StudentId=17,CourseId=9,EnrollmentDate=DateTime.Parse("2008-12-11"),CourseName=CourseName.DesignTechnology},
-    new Enrollment{StudentId=18,CourseId=3,EnrollmentDate=DateTime.Parse("2007-05-19"),CourseName=CourseName.AgricultureScience},
-    new Enrollment{StudentId=19,CourseId=19,EnrollmentDate=DateTime.Parse("2006-08-23"),CourseName=CourseName.SamoanStudies},
-    new Enrollment{StudentId=20,CourseId=1,EnrollmentDate=DateTime.Parse("2009-02-14"),CourseName=CourseName.English},
-      };
+                // These subjects don't exist in your Course table, so map them to related courses
+                new Enrollment{StudentId=12,CourseId=19,EnrollmentDate=DateTime.Parse("2009-06-21"),CourseName=CourseName.SocialStudies},
+                new Enrollment{StudentId=13,CourseId=9,EnrollmentDate=DateTime.Parse("2008-03-03"),CourseName=CourseName.ComputerStudies},
+                new Enrollment{StudentId=14,CourseId=10,EnrollmentDate=DateTime.Parse("2007-10-15"),CourseName=CourseName.HealthEducation},
+                new Enrollment{StudentId=15,CourseId=11,EnrollmentDate=DateTime.Parse("2006-06-08"),CourseName=CourseName.FoodAndTextiles},
+                new Enrollment{StudentId=16,CourseId=11,EnrollmentDate=DateTime.Parse("2009-09-01"),CourseName=CourseName.VisualArts},
+                new Enrollment{StudentId=17,CourseId=9,EnrollmentDate=DateTime.Parse("2008-12-11"),CourseName=CourseName.DesignTechnology},
+                new Enrollment{StudentId=18,CourseId=3,EnrollmentDate=DateTime.Parse("2007-05-19"),CourseName=CourseName.AgricultureScience},
+                new Enrollment{StudentId=19,CourseId=19,EnrollmentDate=DateTime.Parse("2006-08-23"),CourseName=CourseName.SamoanStudies},
+                new Enrollment{StudentId=20,CourseId=1,EnrollmentDate=DateTime.Parse("2009-02-14"),CourseName=CourseName.English},
+            };
             foreach (Enrollment e in enrollments)
             {
                 context.Enrollment.Add(e);
@@ -137,6 +137,35 @@ namespace ITU_ASAU_COLLEGE.Data
             foreach (Department d in department)
             {
                 context.Department.Add(d);
+            }
+            context.SaveChanges();
+
+            var teachers = new Teacher[]
+            {
+                new Teacher{TeacherName="Dr. Smith",DateOfBirth=DateTime.Parse("1960-05-15")},
+                new Teacher{TeacherName="Dr. Johnson",DateOfBirth=DateTime.Parse("1955-08-22")},
+                new Teacher{TeacherName="Dr. Williams",DateOfBirth=DateTime.Parse("1962-12-10")},
+                new Teacher{TeacherName="Dr. Brown",DateOfBirth=DateTime.Parse("1958-03-30")},
+                new Teacher{TeacherName="Dr. Jones",DateOfBirth=DateTime.Parse("1965-11-05")},
+                new Teacher{TeacherName="Dr. Garcia",DateOfBirth=DateTime.Parse("1953-07-18")},
+                new Teacher{TeacherName="Dr. Miller",DateOfBirth=DateTime.Parse("1961-09-25")},
+                new Teacher{TeacherName="Dr. Davis",DateOfBirth=DateTime.Parse("1957-04-12")},
+                new Teacher{TeacherName="Dr. Rodriguez",DateOfBirth=DateTime.Parse("1963-01-30")},
+                new Teacher{TeacherName="Dr. Martinez",DateOfBirth=DateTime.Parse("1954-06-20")},
+                new Teacher{TeacherName="Dr. Hernandez",DateOfBirth=DateTime.Parse("1960-10-14")},
+                new Teacher{TeacherName="Dr. Lopez",DateOfBirth=DateTime.Parse("1959-02-28")},
+                new Teacher{TeacherName="Dr. Gonzalez",DateOfBirth=DateTime.Parse("1964-08-08")},
+                new Teacher{TeacherName="Dr. Wilson",DateOfBirth=DateTime.Parse("1956-12-17")},
+                new Teacher{TeacherName="Dr. Anderson",DateOfBirth=DateTime.Parse("1962-04-30")},
+                new Teacher{TeacherName="Dr. Thomas",DateOfBirth=DateTime.Parse("1958-07-22")},
+                new Teacher{TeacherName="Dr. Taylor",DateOfBirth=DateTime.Parse("1963-03-15")},
+                new Teacher{TeacherName="Dr. Moore",DateOfBirth=DateTime.Parse("1955-11-08")},
+                new Teacher{TeacherName="Dr. Jackson",DateOfBirth=DateTime.Parse("1964-09-28")},
+                new Teacher{TeacherName="Dr. Martin",DateOfBirth=DateTime.Parse("1957-06-30")}
+            };
+            foreach (Teacher t in teachers)
+            {
+                context.Teacher.Add(t);
             }
             context.SaveChanges();
         }
