@@ -15,7 +15,10 @@ namespace ITU_ASAU_COLLEGE.Controllers
         {
             return View();
         }
-        public IActionResult About => View();
+        public IActionResult AboutUs ()
+        {
+            return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
