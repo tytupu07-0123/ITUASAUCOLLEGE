@@ -1,7 +1,8 @@
-﻿using System;
-using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+﻿using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ITU_ASAU_COLLEGE.Data
 {
@@ -173,5 +174,26 @@ namespace ITU_ASAU_COLLEGE.Data
 
     public class DropCreatedDatabaseIfModelChanges<T>
     {
+    }
+
+    public static async Task SeedAdmin(UserManager<ApplicationUser> userManager)
+        {
+            var admin = await userManager.FindByEmailAsync("admin@ituasau.edu.ws");
+
+            if (admin == null)
+            {
+                admin = new ApplicationUser
+                {
+                    UserName = "admin@ituasau.edu.ws",
+                    Email = "admin@ituasau.edu.ws",
+                    FirstName = "System",
+                    LastName = "Administrator",
+                    EmailConfirmed = true
+                };
+
+                await userManager.CreateAsync(admin, "Admin@123");
+                await userManager.AddToRoleAsync(admin, Roles.Admin);
+            }
+        }
     }
 }

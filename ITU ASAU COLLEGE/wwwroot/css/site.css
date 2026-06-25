@@ -61,3 +61,70 @@ footer {
     padding: 15px 0;
     border-top: 1px solid #ddd;
 }
+/* Section spacing */
+.container {
+    margin-top: 80px;
+}
+
+/* Card */
+.info-card {
+    height: 340px;
+    border: 2px solid #0B4EA2;
+    border-radius: 8px;
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    transition: all .3s ease;
+}
+
+    /* Hover Effect */
+    .info-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,.15);
+    }
+
+    /* Heading */
+    .info-card h1 {
+        font-size: 48px;
+        font-weight: 300;
+        margin-bottom: 25px;
+        color: #000;
+    }
+
+    /* Paragraph */
+    .info-card p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    /* Values */
+    .info-card ul {
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #444;
+        padding-left: 25px;
+    }
+
+    .info-card li {
+        margin-bottom: 6px;
+    }
+
+    .info-card strong {
+        color: #0B4EA2;
+    }
+.welcome-box {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px 30px;
+    border: 2px solid #0ea5f5;
+    border-radius: 12px;
+    color: #0ea5f5;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    background-color: #ffffff;
+}
