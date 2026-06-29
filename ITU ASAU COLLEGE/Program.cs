@@ -4,6 +4,7 @@ using ITU_ASAU_COLLEGE.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using ITU_ASAU_COLLEGE.Constants;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLEGEContextConnection") ?? throw new InvalidOperationException("Connection string 'ITU_ASAU_COLLEGEContextConnection' not found.");;
 
@@ -35,16 +36,24 @@ using (var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred seeding the DB.");
     }
 }
-
-
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>()
+    .AddDefaultTokenProviders();
+using (var scope = app.Services.CreateScope())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    await RoleSeeder.SeedRolesAsync(roleManager);
 }
+
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
 
 app.UseHttpsRedirection();
 app.UseRouting();
