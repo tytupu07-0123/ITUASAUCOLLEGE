@@ -3,18 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Models;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;   
 
 public class StudentsController : Controller
 {
+   
     private readonly ITU_ASAU_COLLEGEContext _context;
 
     public StudentsController(ITU_ASAU_COLLEGEContext context)
     {
         _context = context;
     }
-
     // GET: STUDENTS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index()
     {
         return View(await _context.Student.ToListAsync());
     }
@@ -36,7 +37,7 @@ public class StudentsController : Controller
 
         return View(student);
     }
-
+    [Authorize(Roles = "Admin, Teacher")]
     // GET: STUDENTS/Create
     public IActionResult Create()
     {
@@ -67,6 +68,20 @@ public class StudentsController : Controller
             return NotFound();
         }
 
+        var student = await _context.Student.FindAsync(studentid);
+        if (student == null)
+        {
+            return NotFound();
+        }
+        return View(student);
+    }
+    [Authorize(Roles = "Admin, Teacher")]
+    public async Task<IActionResult> EditStudent(int? studentid)
+    {
+        if (studentid == null)
+        {
+            return NotFound();
+        }
         var student = await _context.Student.FindAsync(studentid);
         if (student == null)
         {
@@ -125,6 +140,21 @@ public class StudentsController : Controller
             return NotFound();
         }
 
+        return View(student);
+    }
+    [Authorize(Roles = "Admin, Teacher")]
+    public async Task<IActionResult> DeleteStudent(int? studentid)
+    {
+        if (studentid == null)
+        {
+            return NotFound();
+        }
+        var student = await _context.Student
+            .FirstOrDefaultAsync(m => m.StudentId == studentid);
+        if (student == null)
+        {
+            return NotFound();
+        }
         return View(student);
     }
 

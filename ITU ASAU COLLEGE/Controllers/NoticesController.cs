@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
@@ -22,7 +23,8 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // GET: Notices
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Notice.ToListAsync());
+            var ITU_ASAU_COLLEGEContext = _context.Notice.Include(n => n.Teacher);
+            return View(await ITU_ASAU_COLLEGEContext.ToListAsync());
         }
 
         // GET: Notices/Details/5
@@ -44,6 +46,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         }
 
         // GET: Notices/Create
+        [Authorize(Roles = "Admin, Teacher")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +69,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         }
 
         // GET: Notices/Edit/5
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +121,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         }
 
         // GET: Notices/Delete/5
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
