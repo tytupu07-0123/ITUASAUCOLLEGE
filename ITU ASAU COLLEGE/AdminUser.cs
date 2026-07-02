@@ -6,20 +6,20 @@ namespace ITU_ASAU_COLLEGE
     {
         public static async Task SeedAdmin(UserManager<IdentityUser> userManager) 
         {
-            string email = "admin@ITU_ASAU_COLLEGE.com";
+            var email = "admin@ITU_ASAU_COLLEGE.com";
 
-            var user = await userManager.FindByEmailAsync(email);
+            var adminUser = await userManager.FindByEmailAsync(email);
 
-            if (user == null) 
+            if (adminUser == null) 
             {
-                user = new IdentityUser
+                adminUser = new IdentityUser
                 {
                     UserName = email,
                     Email = email,
                     EmailConfirmed = true
                 };
-                await userManager.CreateAsync(user, "Admin@123");
-                await userManager.AddToRoleAsync(user, Constants.Roles.Admin);
+                await userManager.CreateAsync(adminUser, "Admin@123");
+                await userManager.AddToRoleAsync(adminUser, Constants.Roles.Admin);
             }
         }
     }

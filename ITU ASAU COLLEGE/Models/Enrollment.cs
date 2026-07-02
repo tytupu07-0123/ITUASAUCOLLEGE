@@ -44,7 +44,7 @@ namespace ITU_ASAU_COLLEGE.Models
         public DateTime EnrollmentDate { get; set; }
         [Display(Name = "Course Name")]
         public required CourseName CourseName { get; set; }
-        public Course Course { get; set; }
-        public Student Student { get; set; }
+        public Course? Course { get; set; }
+        public Student? Student { get; set; }
     }
 }

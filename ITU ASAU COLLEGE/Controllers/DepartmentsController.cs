@@ -10,6 +10,7 @@ using ITU_ASAU_COLLEGE.Models;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
+
     public class DepartmentsController : Controller
     {
         private readonly ITU_ASAU_COLLEGEContext _context;

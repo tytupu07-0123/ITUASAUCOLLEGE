@@ -7,107 +7,104 @@ using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Constants;
 using ITU_ASAU_COLLEGE.Models;
 
-var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLEGEContextConnection") ?? throw new InvalidOperationException("Connection string 'ITU_ASAU_COLLEGEContextConnection' not found."); ;
-
-builder.Services.AddDbContext<ITU_ASAU_COLLEGEContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+public partial class Program
 {
-    options.SignIn.RequireConfirmedAccount = false;
-})
-.AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>();
-
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-var app = builder.Build();
-
-// Seed the database.
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
+    private static async Task Main(string[] args)
     {
-        var context = services.GetRequiredService<ITU_ASAU_COLLEGEContext>();
-        DbInitializer.Initialize(context);
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred seeding the DB.");
-    }
-}
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>()
-    .AddDefaultTokenProviders();
+        var builder = WebApplication.CreateBuilder(args);
+        var connectionString = builder.Configuration.GetConnectionString("ITU_ASAU_COLLEGEContextConnection") ?? throw new InvalidOperationException("Connection string 'ITU_ASAU_COLLEGEContextConnection' not found."); ;
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+        builder.Services.AddDbContext<ITU_ASAU_COLLEGEContext>(options => options.UseSqlServer(connectionString));
 
-app.UseHttpsRedirection();
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapStaticAssets();
-app.MapRazorPages();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
-using (var scope = app.Services.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var roles = new[] { "Admin", "Teacher", "Student" };
-
-    foreach (var role in roles)
-    {
-        if (!await roleManager.RoleExistsAsync(role))
+        builder.Services.AddDefaultIdentity<IdentityUser>(options =>
         {
-            await roleManager.CreateAsync(new IdentityRole(role));
+            options.SignIn.RequireConfirmedAccount = false;
+        })
+        .AddRoles<IdentityRole>()
+        .AddEntityFrameworkStores<ITU_ASAU_COLLEGEContext>();
+
+        // Add services to the container.
+        builder.Services.AddControllersWithViews();
+        
+        var app = builder.Build();
+
+        // Seed the database.
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            
+                var context = services.GetRequiredService<ITU_ASAU_COLLEGEContext>();
+                DbInitializer.Initialize(context);
+        }
+        
+
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+        
+
+        app.MapStaticAssets();
+        app.MapRazorPages();
+
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}")
+            .WithStaticAssets();
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var roles = new[] { "Admin", "Teacher", "Student" };
+
+            foreach (var role in roles)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+        }
+        using (var scope = app.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+            string FirstName = "Admin";
+            string LastName = "IAC";
+            DateTime DateOfBirth = new DateTime(2000, 1, 1);
+            string email = "admin@ITU_ASAU_COLLEGE.com";
+            string password = "Admin@123";
+
+            if (await userManager.FindByEmailAsync(email) == null)
+            {
+                var user = new IdentityUser
+                {
+                    UserName = email,
+                    Email = email,
+
+                };
+
+                await userManager.CreateAsync(user, password);
+
+                await userManager.AddToRoleAsync(user, "Admin");
+                await userManager.AddToRoleAsync(user, "Teacher");
+                await userManager.AddToRoleAsync(user, "Student");
+            }
+            ;
+
+
+            app.Run();
+
         }
     }
-
-}
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-    string FirstName = "Admin";
-    string LastName = "IAC";
-    DateTime DateOfBirth = new DateTime(2000, 1, 1);
-    string email = "admin@ITU_ASAU_COLLEGE.com";
-    string password = "Admin@123";
-
-    if (await userManager.FindByEmailAsync(email) == null)
-    {
-        var user = new IdentityRole
-        {
-            UserName = email,
-            Email = email,
-            FirstName = FirstName,
-            LastName = LastName,
-            DateOfBirth = DateOfBirth
-        };
-
-        await userManager.CreateAsync(user, password);
-
-        await userManager.AddToRoleAsync(user, "Admin");
-        await userManager.AddToRoleAsync(user, "Teacher");
-        await userManager.AddToRoleAsync(user, "Student");
-    }
-    ;
-
-
-    app.Run();
-
 }

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
+
     public class NoticesController : Controller
     {
         private readonly ITU_ASAU_COLLEGEContext _context;
