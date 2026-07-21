@@ -10,7 +10,7 @@ namespace ITU_ASAU_COLLEGE.Data
     {
         public static void Initialize(ITU_ASAU_COLLEGEContext context)
         {
-            context.Database.Migrate();
+            context.Database.EnsureCreated();
 
             //Look for any students.
             if (context.Student.Any())

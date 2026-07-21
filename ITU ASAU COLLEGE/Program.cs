@@ -83,7 +83,7 @@ public partial class Program
             string LastName = "IAC";
             DateTime DateOfBirth = new DateTime(2000, 1, 1);
             string email = "admin@ITU_ASAU_COLLEGE.com";
-            string password = "Admin@123";
+            string password = "Password123!";
 
             if (await userManager.FindByEmailAsync(email) == null)
             {
