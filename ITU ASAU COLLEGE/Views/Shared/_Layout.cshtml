@@ -57,10 +57,56 @@
     </div>
 </html>
 
+
     <footer class="border-bottom footer text-muted">
-        <div class="container">
-            &copy; 2026 - ITU_ASAU_COLLEGE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="footer-container">
+        <div class="footer-section">
+            <img src="images/IAClogo.png" class="footer-logo" />
+            <h4>ITU ASAU COLLEGE</h4>
+            <p>Empowering students through quality education and excellence.</p>
+            <style>
+                .h4 {
+                    color:blue
+                }
+            </style>
         </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>📍 Asau Savaii, Apia, Samoa 2216</p>
+            <p>📞 +685 7736778</p>
+            <p>✉ info@ituasaucollege.edu.ws</p>
+            <style>
+                .h4 {
+                    color:blue
+                }
+            </style>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Students" asp-action="Index">Students</a></li>
+                <li><a asp-controller="Notices" asp-action="Index">Notices</a></li>
+                <li><a asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            </ul>
+            <style>
+                .h4 {
+                    color:blue
+                }
+                .footer-section ul {
+                    color:black;
+                }
+            </style>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 ITU ASAU COLLEGE. All Rights Reserved.
+    </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
