@@ -10,7 +10,7 @@ namespace ITU_ASAU_COLLEGE.Data
     {
         public static void Initialize(ITU_ASAU_COLLEGEContext context)
         {
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
 
             //Look for any students.
             if (context.Student.Any())
@@ -52,33 +52,35 @@ namespace ITU_ASAU_COLLEGE.Data
 
             var courses = new Course[]
             {
-                new Course{CourseId=1,Title="English",Credits=3},
-                new Course{CourseId=2,Title="Mathematics",Credits=4},
-                new Course{CourseId=3,Title="Science",Credits=4},
-                new Course{CourseId=4,Title="History",Credits=3},
-                new Course{CourseId=5,Title="Geography",Credits=3},
-                new Course{CourseId=6,Title="Physics",Credits=4},
-                new Course{CourseId=7,Title="Chemistry",Credits=4},
-                new Course{CourseId=8,Title="Biology",Credits=4},
-                new Course{CourseId=9,Title="Computer Science",Credits=5},
-                new Course{CourseId=10,Title="Physical Education",Credits=2},
-                new Course{CourseId=11,Title="Visual Art",Credits=2},
-                new Course{CourseId=12,Title="Music",Credits=2},
-                new Course{CourseId=13,Title="Economics",Credits=3},
-                new Course{CourseId=14,Title="Business Studies",Credits=3},
-                new Course{CourseId=15,Title="Accounting",Credits=3},
-                new Course{CourseId=16,Title="Statistics",Credits=4},
-                new Course{CourseId=17,Title="Philosophy",Credits=3},
-                new Course{CourseId=18,Title="Psychology",Credits=3},
-                new Course{CourseId=19,Title="Sociology",Credits=3},
-                new Course{CourseId=20,Title="Literature",Credits=3},
-                new Course{CourseId=21,Title="Drama",Credits=2}
+                new Course{Title="English",Credits=3},
+                new Course{Title="Mathematics",Credits=4},
+                new Course{Title="Science",Credits=4},
+                new Course{Title="History",Credits=3},
+                new Course{Title="Geography",Credits=3},
+                new Course{Title="Physics",Credits=4},
+                new Course{Title="Chemistry",Credits=4},
+                new Course{Title="Biology",Credits=4},
+                new Course{Title="Computer Science",Credits=5},
+                new Course{Title="Physical Education",Credits=2},
+                new Course{Title="Visual Art",Credits=2},
+                new Course{Title="Music",Credits=2},
+                new Course{Title="Economics",Credits=3},
+                new Course{Title="Business Studies",Credits=3},
+                new Course{Title="Accounting",Credits=3},
+                new Course{Title="Statistics",Credits=4},
+                new Course{Title="Philosophy",Credits=3},
+                new Course{Title="Psychology",Credits=3},
+                new Course{Title="Sociology",Credits=3},
+                new Course{Title="Literature",Credits=3},
+                new Course{Title="Drama",Credits=2}
             };
             foreach (Course c in courses)
             {
                 context.Course.Add(c);
             }
             context.SaveChanges();
+
+
 
             var enrollments = new Enrollment[]
             {

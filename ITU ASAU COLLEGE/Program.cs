@@ -103,8 +103,9 @@ public partial class Program
             ;
 
 
-            app.Run();
+            
 
         }
+        app.Run();
     }
 }
