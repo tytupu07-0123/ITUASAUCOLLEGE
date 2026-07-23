@@ -3,7 +3,18 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .body {
+        background-color: aliceblue;
+    }
 
+    .table {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+</style>
 <h1>Students</h1>
 
 <p>
@@ -30,7 +41,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Enrollments)
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
