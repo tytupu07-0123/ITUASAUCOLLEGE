@@ -4,7 +4,6 @@ using ITU_ASAU_COLLEGE.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
-using ITU_ASAU_COLLEGE.Constants;
 using ITU_ASAU_COLLEGE.Models;
 
 public partial class Program
