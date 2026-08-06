@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
@@ -42,7 +43,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
 
             return View(course);
         }
-
+        [Authorize(Roles = "Admin, Teacher")]
         // GET: Courses/Create
         public IActionResult Create()
         {
@@ -54,6 +55,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Create([Bind("CourseId,Title,Credits")] Course course)
         {
             if (ModelState.IsValid)
@@ -64,7 +66,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Admin, Teacher")]
         // GET: Courses/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,6 +88,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Edit(int id, [Bind("CourseId,Title,Credits")] Course course)
         {
             if (id != course.CourseId)
@@ -115,7 +118,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Admin, Teacher")]
         // GET: Courses/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -137,6 +140,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var course = await _context.Course.FindAsync(id);

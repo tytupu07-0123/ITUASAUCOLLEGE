@@ -45,9 +45,8 @@ namespace ITU_ASAU_COLLEGE.Controllers
 
             return View(notice);
         }
-
-        // GET: Notices/Create
         [Authorize(Roles = "Admin, Teacher")]
+        // GET: Notices/Create
         public IActionResult Create()
         {
             return View();
@@ -58,6 +57,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Create([Bind("NoticeId,Date,NoticesTitle")] Notice notice)
         {
             if (ModelState.IsValid)
@@ -91,6 +91,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Edit(int id, [Bind("NoticeId,Date,NoticesTitle")] Notice notice)
         {
             if (id != notice.NoticeId)
@@ -143,6 +144,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // POST: Notices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var notice = await _context.Notice.FindAsync(id);

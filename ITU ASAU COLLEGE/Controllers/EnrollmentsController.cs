@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Models;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
-
+using Microsoft.AspNetCore.Authorization;
 public class EnrollmentsController : Controller
 {
     private readonly ITU_ASAU_COLLEGEContext _context;
@@ -12,7 +12,7 @@ public class EnrollmentsController : Controller
     {
         _context = context;
     }
-
+    
     // GET: ENROLLMENTS
     public async Task<IActionResult> Index()    
     {
@@ -38,6 +38,7 @@ public class EnrollmentsController : Controller
     }
 
     // GET: ENROLLMENTS/Create
+    [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
         return View();
@@ -48,6 +49,7 @@ public class EnrollmentsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create([Bind("EnrollmentId,EnrollmentDate,CourseName")] Enrollment enrollment)
     {
         if (ModelState.IsValid)
@@ -58,7 +60,7 @@ public class EnrollmentsController : Controller
         }
         return View(enrollment);
     }
-
+    [Authorize(Roles = "Admin")]
     // GET: ENROLLMENTS/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
@@ -80,6 +82,7 @@ public class EnrollmentsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Edit(int? id, [Bind("EnrollmentId,EnrollmentDate,CourseName")] Enrollment enrollment)
     {
         if (id != enrollment.EnrollmentId)
@@ -109,7 +112,7 @@ public class EnrollmentsController : Controller
         }
         return View(enrollment);
     }
-
+    [Authorize(Roles = "Admin")]
     // GET: ENROLLMENTS/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
@@ -131,6 +134,7 @@ public class EnrollmentsController : Controller
     // POST: ENROLLMENTS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
         var enrollment = await _context.Enrollment.FindAsync(id);

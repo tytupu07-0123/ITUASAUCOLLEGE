@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using ITU_ASAU_COLLEGE.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ITU_ASAU_COLLEGE.Areas.Identity.Data;
-using ITU_ASAU_COLLEGE.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
@@ -42,7 +43,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
 
             return View(teacher);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Teachers/Create
         public IActionResult Create()
         {
@@ -54,6 +55,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("TeacherId,TeacherName,DateOfBirth")] Teacher teacher)
         {
             if (ModelState.IsValid)
@@ -64,7 +66,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             }
             return View(teacher);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Teachers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,6 +88,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("TeacherId,TeacherName,DateOfBirth")] Teacher teacher)
         {
             if (id != teacher.TeacherId)
@@ -115,7 +118,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             }
             return View(teacher);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Teachers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -137,6 +140,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // POST: Teachers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var teacher = await _context.Teacher.FindAsync(id);

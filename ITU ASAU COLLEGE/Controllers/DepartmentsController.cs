@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using ITU_ASAU_COLLEGE.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
@@ -43,7 +44,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
 
             return View(department);
         }
-
+        [Authorize(Roles = "Admin, Teacher")]
         // GET: Departments/Create
         public IActionResult Create()
         {
@@ -55,6 +56,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Create([Bind("Id,Name,CourseId,HeadOfDepartment,NumberOfTeachers,NumberOfStudents")] Department department)
         {
             if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             }
             return View(department);
         }
+        [Authorize(Roles = "Admin, Teacher")]
 
         // GET: Departments/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -87,6 +90,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CourseId,HeadOfDepartment,NumberOfTeachers,NumberOfStudents")] Department department)
         {
             if (id != department.Id)
@@ -117,6 +121,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             return View(department);
         }
 
+        [Authorize(Roles = "Admin, Teacher")]
         // GET: Departments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -138,6 +143,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         // POST: Departments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var department = await _context.Department.FindAsync(id);

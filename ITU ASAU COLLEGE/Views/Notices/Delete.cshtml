@@ -23,6 +23,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NoticesTitle)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NoticeDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NoticeDescription)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
