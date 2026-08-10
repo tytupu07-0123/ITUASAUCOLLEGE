@@ -59,6 +59,16 @@ public partial class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}")
             .WithStaticAssets();
+        app.UseAuthorization();
+        
+
+        app.MapStaticAssets();
+        app.MapRazorPages();
+
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}")
+            .WithStaticAssets();
 
         using (var scope = app.Services.CreateScope())
         {
@@ -106,5 +116,10 @@ public partial class Program
 
         }
         app.Run();
+    }
+
+    private static void AddGoogle(Action<object> value)
+    {
+        throw new NotImplementedException();
     }
 }
