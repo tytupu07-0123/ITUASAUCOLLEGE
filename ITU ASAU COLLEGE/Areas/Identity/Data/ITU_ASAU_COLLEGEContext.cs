@@ -5,7 +5,8 @@ using ITU_ASAU_COLLEGE.Models;
 
 namespace ITU_ASAU_COLLEGE.Areas.Identity.Data;
 
-public class ITU_ASAU_COLLEGEContext : IdentityDbContext<IdentityUser>
+public class ITU_ASAU_COLLEGEContext 
+    : IdentityDbContext<IdentityUser>
 {
     public ITU_ASAU_COLLEGEContext(DbContextOptions<ITU_ASAU_COLLEGEContext> options)
         : base(options)
