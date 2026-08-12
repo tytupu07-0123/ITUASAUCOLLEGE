@@ -12,7 +12,11 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="images/IAClogo.png" class="logo"/>
+            <img src="~/images/IAClogo.png"
+                 alt="Logo"
+                 width="60"
+                 height="60"
+                 class="rounded-circle me-2" />
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ITU ASAU COLLEGE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -43,12 +47,10 @@
         </main>
     </div>
 </html>
-
-
-    <footer class="border-bottom footer text-muted">
+<footer class="border-bottom footer text-muted">
         <div class="footer-container">
         <div class="footer-section">
-            <img src="images/IAClogo.png" class="footer-logo" />
+            <img src="~/images/IAClogo.png" alt="Logo" class="footer-logo" />
             <h4>ITU ASAU COLLEGE</h4>
             <p>Empowering students through quality education and excellence.</p>
             <style>
@@ -79,11 +81,19 @@
                 <li><a asp-controller="Home" asp-action="Privacy">Privacy</a></li>
             </ul>
             <style>
-                .h4 {
-                    color:blue
+                a:link, a:visited {
+                    color: black;
+                    background-color: white;
+                    border: 1px solid blue;
+                    padding: 5px 10px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+
                 }
-                .footer-section ul {
-                    color:black;
+                a:hover, a:active {
+                    background-color: blue;
+                    color: white;
                 }
             </style>
         </div>
@@ -94,9 +104,9 @@
         © 2026 ITU ASAU COLLEGE. All Rights Reserved.
     </div>
 
-    </footer>
+</footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</html>
+  
