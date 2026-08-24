@@ -169,12 +169,12 @@ footer {
         }
 
     .footer-section a {
-        color: white;
+        color: black;
         text-decoration: none;
     }
 
         .footer-section a:hover {
-            color: #FFD700;
+            color: deepskyblue;
         }
 
 .footer-bottom {
@@ -212,4 +212,23 @@ footer {
     .social-btn:hover {
         background: #f8f9fa;
         transform: translateY(-2px);
+    }
+.custom-navbar {
+    background-image: url('/Images/background5.png') !important;
+    background-size: 100% 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    height: 150px;
+}
+
+    .custom-navbar .container {
+        height: 150px;
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-navbar .navbar-brand,
+    .custom-navbar .nav-link {
+        color: white !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
