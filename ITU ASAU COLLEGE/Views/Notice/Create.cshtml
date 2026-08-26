@@ -1,35 +1,43 @@
-﻿@model ITU_ASAU_COLLEGE.Models.Notice
+@model ITU_ASAU_COLLEGE.Models.Notice
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
 <h4>Notice</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="NoticeId" />
+
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="NoticesTitle" class="control-label"></label>
                 <input asp-for="NoticesTitle" class="form-control" />
                 <span asp-validation-for="NoticesTitle" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="NoticeDescription" class="control-label"></label>
                 <input asp-for="NoticeDescription" class="form-control" />
                 <span asp-validation-for="NoticeDescription" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Teacher" class="control-label"></label>
+                <input asp-for="Teacher" class="form-control" />
+                <span asp-validation-for="Teacher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -38,7 +46,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

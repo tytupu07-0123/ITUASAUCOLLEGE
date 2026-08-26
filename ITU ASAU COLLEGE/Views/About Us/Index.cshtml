@@ -1,0 +1,234 @@
+﻿@{
+
+    ViewData["Title"] = "About Us";
+
+}
+
+<div class="about-page">
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About ITU ASAU COLLEGE</h1>
+            <p>
+
+                Welcome to ITU ASAU COLLEGE. We are committed to providing
+
+                quality education that develops knowledgeable, responsible,
+
+                and confident students.
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2>Who We Are</h2>
+
+            <p>
+
+                ITU ASAU COLLEGE is dedicated to creating a supportive and
+
+                inclusive learning environment where students can grow
+
+                academically, socially, culturally, and personally.
+            </p>
+
+            <p>
+
+                Our college encourages students to develop their knowledge,
+
+                skills, values, and confidence so they can contribute
+
+                positively to their families, communities, and society.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission, Vision and Values -->
+    <section class="about-cards">
+        <div class="about-container">
+
+            <div class="about-card">
+                <h2>Our Mission</h2>
+                <p>
+
+                    To provide quality education and opportunities that
+
+                    empower students to achieve their potential and become
+
+                    responsible members of their communities.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Vision</h2>
+                <p>
+
+                    To be a caring and successful learning community that
+
+                    inspires students to achieve excellence and make a
+
+                    positive difference in the world.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Values</h2>
+                <ul>
+                    <li>Respect</li>
+                    <li>Responsibility</li>
+                    <li>Integrity</li>
+                    <li>Excellence</li>
+                    <li>Commitment</li>
+                    <li>Achievement</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="about-section community-section">
+        <div class="about-container">
+            <h2>Our Community</h2>
+
+            <p>
+
+                At ITU ASAU COLLEGE, we value strong relationships between
+
+                students, teachers, families, and the wider community.
+
+                Working together helps create a positive environment where
+
+                every student has the opportunity to succeed.
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<style>
+
+    .about-page {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-hero {
+        background: linear-gradient( rgba(0, 70, 130, 0.80), rgba(0, 70, 130, 0.80) ), url('/images/school-background.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 80px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .about-hero-content {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .about-hero h1 {
+        font-size: 42px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .about-hero p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0 auto;
+    }
+
+    .about-section {
+        padding: 55px 20px;
+        background: white;
+    }
+
+    .about-container {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .about-section h2 {
+        text-align: center;
+        color: #0056a6;
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+
+    .about-section p {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 18px;
+    }
+
+    .about-cards {
+        padding: 55px 20px;
+        background: #f1f7fc;
+    }
+
+        .about-cards .about-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+    .about-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        border-top: 5px solid #0056a6;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    }
+
+        .about-card h2 {
+            color: #0056a6;
+            font-size: 25px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .about-card p {
+            color: #555;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .about-card ul {
+            padding-left: 25px;
+            color: #555;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+    .community-section {
+        text-align: center;
+        background: white;
+    }
+
+    (max-width: 768px) {
+
+        .about-hero {
+            padding: 60px 20px;
+        }
+
+            .about-hero h1 {
+                font-size: 32px;
+            }
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+        .about-cards .about-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+ 

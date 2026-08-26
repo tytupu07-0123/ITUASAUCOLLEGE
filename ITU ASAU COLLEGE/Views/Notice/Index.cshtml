@@ -1,21 +1,10 @@
-﻿@model IEnumerable<ITU_ASAU_COLLEGE.Models.Notice>
+@model IEnumerable<ITU_ASAU_COLLEGE.Models.Notice>
 
 @{
     ViewData["Title"] = "Index";
 }
-<style>
-    .body {
-        background-color: aliceblue;
-    }
 
-    .table {
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-    }
-</style>
-<h1>Notices</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -33,22 +22,26 @@
                 @Html.DisplayNameFor(model => model.NoticeDescription)
             </th>
             <th>
-                Actions
+                @Html.DisplayNameFor(model => model.Teacher)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(model => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NoticesTitle)
+                @Html.DisplayFor(model => item.NoticesTitle)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NoticeDescription)
-                </td>
+            <td>
+                @Html.DisplayFor(model => item.NoticeDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Teacher)
+            </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.NoticeId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.NoticeId">Details</a> |
