@@ -44,7 +44,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Course", (string)null);
+                    b.ToTable("Course");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>
@@ -75,7 +75,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Enrollment", b =>
@@ -104,7 +104,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Enrollment", (string)null);
+                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Notice", b =>
@@ -128,7 +128,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Notice", (string)null);
+                    b.ToTable("Notice");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Student", b =>
@@ -164,7 +164,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Student", (string)null);
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Teacher", b =>
@@ -192,7 +192,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Teacher", (string)null);
+                    b.ToTable("Teacher");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

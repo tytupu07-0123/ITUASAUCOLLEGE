@@ -1,53 +1,85 @@
 @model IEnumerable<ITU_ASAU_COLLEGE.Models.Notice>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Notices";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NoticesTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NoticeDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Teacher)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.NoticesTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.NoticeDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Teacher)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.NoticeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NoticeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NoticeId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>School Notices</h1>
+
+        <a asp-action="Create" class="btn btn-primary">
+            Create New Notice
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            There are currently no notices available.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var notice in Model)
+            {
+                <div class="col-md-6 mb-4">
+
+                    <div class="card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h3 class="card-title">
+                                @notice.NoticesTitle
+                            </h3>
+
+                            <p class="text-muted">
+                                <strong>Date:</strong>
+                                @notice.Date.ToShortDateString()
+                            </p>
+
+                            <p class="card-text">
+                                @notice.NoticeDescription
+                            </p>
+
+                            <p>
+                                <strong>Posted by:</strong>
+                                @notice.Teacher
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <a asp-action="Details"
+                               asp-route-noticeid="@notice.NoticeId"
+                               class="btn btn-info btn-sm">
+                                Details
+                            </a>
+
+                            <a asp-action="Edit"
+                               asp-route-noticeid="@notice.NoticeId"
+                               class="btn btn-warning btn-sm">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-noticeid="@notice.NoticeId"
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>
