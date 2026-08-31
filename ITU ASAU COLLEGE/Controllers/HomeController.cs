@@ -15,7 +15,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         {
             return View();
         }
-        public IActionResult AboutUs ()
+        public IActionResult AboutUs()
         {
             return View();
         }

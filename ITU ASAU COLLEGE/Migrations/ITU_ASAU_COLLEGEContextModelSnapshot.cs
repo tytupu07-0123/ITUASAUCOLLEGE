@@ -118,7 +118,14 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NoticeDescription")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("NoticesTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TeacherId")

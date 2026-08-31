@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Models;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 public class NoticesController : Controller
 {
     private readonly ITU_ASAU_COLLEGEContext _context;
@@ -52,6 +54,7 @@ public class NoticesController : Controller
     {
         if (ModelState.IsValid)
         {
+            notice.PostedBy = User.Identity.Name; // Set the PostedBy property to the current user's name
             _context.Add(notice);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
