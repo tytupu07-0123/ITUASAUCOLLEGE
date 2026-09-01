@@ -21,12 +21,14 @@ namespace ITU_ASAU_COLLEGE.Controllers
         }
 
         // GET: Teachers
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Teacher.ToListAsync());
         }
 
         // GET: Teachers/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

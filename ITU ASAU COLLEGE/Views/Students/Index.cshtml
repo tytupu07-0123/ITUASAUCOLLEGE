@@ -65,7 +65,14 @@
                 @Html.DisplayFor(model => item.DateOfBirth)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Enrollments)
+                    
+                    <ul>
+                        @foreach (var enrollment in item.Enrollments)
+                        {
+                            <li>@enrollment.CourseName</li>
+                        }
+                    </ul>
+                    
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |

@@ -5,7 +5,7 @@ using ITU_ASAU_COLLEGE.Models;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 
-[Authorize]
+
 public class NoticesController : Controller
 {
     private readonly ITU_ASAU_COLLEGEContext _context;
@@ -22,6 +22,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Details/5
+    [Authorize(Roles = "Admin,Teacher")]
     public async Task<IActionResult> Details(int? noticeid)
     {
         if (noticeid == null)
@@ -40,6 +41,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Create
+    [Authorize (Roles="Admin,Teacher")]
     public IActionResult Create()
     {
         return View();
@@ -50,6 +52,7 @@ public class NoticesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize (Roles="Admin,Teacher")]
     public async Task<IActionResult> Create([Bind("NoticeId,Date,NoticesTitle,NoticeDescription,Teacher")] Notice notice)
     {
         if (ModelState.IsValid)
@@ -63,6 +66,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Edit/5
+    [Authorize (Roles="Admin,Teacher")]
     public async Task<IActionResult> Edit(int? noticeid)
     {
         if (noticeid == null)
@@ -83,6 +87,7 @@ public class NoticesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize (Roles="Admin,Teacher")]
     public async Task<IActionResult> Edit(int? noticeid, [Bind("NoticeId,Date,NoticesTitle,NoticeDescription,Teacher")] Notice notice)
     {
         if (noticeid != notice.NoticeId)
@@ -114,6 +119,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Delete/5
+    [Authorize (Roles="Admin,Teacher")]
     public async Task<IActionResult> Delete(int? noticeid)
     {
         if (noticeid == null)
@@ -134,6 +140,7 @@ public class NoticesController : Controller
     // POST: NOTICES/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
+    [Authorize (Roles="Admin,Teacher")]
     public async Task<IActionResult> DeleteConfirmed(int? noticeid)
     {
         var notice = await _context.Notice.FindAsync(noticeid);

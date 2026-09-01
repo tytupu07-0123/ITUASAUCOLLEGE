@@ -14,12 +14,15 @@ public class EnrollmentsController : Controller
     }
     
     // GET: ENROLLMENTS
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()    
     {
         return View(await _context.Enrollment.ToListAsync());
+
     }
 
     // GET: ENROLLMENTS/Details/5
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Details(int?id)
     {
         if (id == null)
@@ -36,14 +39,14 @@ public class EnrollmentsController : Controller
 
         return View(enrollment);
     }
-
+    
     // GET: ENROLLMENTS/Create
     [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
         return View();
     }
-
+    //Student enrolment form
     // POST: ENROLLMENTS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

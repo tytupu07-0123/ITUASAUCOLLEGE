@@ -15,12 +15,17 @@ public class StudentsController : Controller
         _context = context;
     }
     // GET: STUDENTS
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Student.ToListAsync());
+        var students = await _context.Student
+            .Include(s => s.Enrollments)
+            .ToListAsync();
+        return View(students);
     }
 
     // GET: STUDENTS/Details/5
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
