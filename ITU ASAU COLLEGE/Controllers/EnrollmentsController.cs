@@ -14,7 +14,6 @@ public class EnrollmentsController : Controller
     }
     
     // GET: ENROLLMENTS
-    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()    
     {
         return View(await _context.Enrollment.ToListAsync());

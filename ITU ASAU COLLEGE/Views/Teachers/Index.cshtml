@@ -52,9 +52,14 @@
                     @Html.DisplayFor(modelItem => item.ClassCode)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TeacherId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeacherId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeacherId">Delete</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span>
+                            <a asp-action="Edit" asp-route-id="@item.TeacherId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.TeacherId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.TeacherId">Delete</a>
+                        </span>
+                    }               
             </td>
         </tr>
 }

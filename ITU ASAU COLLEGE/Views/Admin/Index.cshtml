@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard"; 
+}
+<h1>Admin Dashboard</h1>
+
+<div class="row>
+    <div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Students</h5>
+            <p class="card-text">Add, edit, or remove student records.</p>
+            <a href="@Url.Action("Index", "Students")" class="btn btn-primary">Go to Students</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Courses</h5>
+            <p class="card-text">Add, edit, or remove course records.</p>
+            <a href="@Url.Action("Index", "Courses")" class="btn btn-primary">Go to Courses</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Notices</h5>
+            <p class="card-text">Create and manage school notices.</p>
+            <a href="@Url.Action("Index", "Notices")" class="btn btn-primary">Go to Notices</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Teachers</h5>
+            <p class="card-text">Add, edit, or remove teacher records.</p>
+            <a href="@Url.Action("Index", "Teachers")" class="btn btn-primary">Go to Teachers</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Enrollments</h5>
+            <p class="card-text">View and manage student enrollments.</p>
+            <a href="@Url.Action("Index", "Enrollments")" class="btn btn-primary">Go to Enrollments</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Manage Departments</h5>
+            <p class="card-text">Add, edit, or remove department records.</p>
+            <a href="@Url.Action("Index", "Departments")" class="btn btn-primary">Go to Departments</a>
+        </div>
+    </div>
+</div>
+
+</div>

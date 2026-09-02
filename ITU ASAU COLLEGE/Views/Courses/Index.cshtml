@@ -44,9 +44,21 @@
                 @Html.DisplayFor(modelItem => item.Credits)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span>
+                            <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
+                        </span>
+                    }
+                    else
+                    {
+                        <span>
+                            <a asp-action="Details" asp-route-id="@item.CourseId">Details</a>
+                        </span>
+                    }
+                        
             </td>
         </tr>
 }

@@ -22,7 +22,6 @@ namespace ITU_ASAU_COLLEGE.Controllers
         }
 
         // GET: Departments
-        [Authorize(Roles = "Admin, Teacher")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Department.ToListAsync());

@@ -8,6 +8,18 @@ namespace ITU_ASAU_COLLEGE.Controllers
     {
         public IActionResult Index()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            else if (User.IsInRole("Teacher"))
+            {
+                return RedirectToAction("Index", "TeachersDashboard");
+            }
+            else if (User.IsInRole("Student"))
+            {
+                return RedirectToAction("Index", "StudentsDashboard");
+            }
             return View();
         }
 
