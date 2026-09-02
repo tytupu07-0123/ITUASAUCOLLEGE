@@ -8,10 +8,12 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>School Notices</h1>
-
-        <a asp-action="Create" class="btn btn-primary">
-            Create New Notice
-        </a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                Create New Notice
+            </a>
+        }
     </div>
 
     @if (!Model.Any())
@@ -51,28 +53,30 @@
                             </p>
 
                         </div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="card-footer">
 
-                        <div class="card-footer">
+                                <a asp-action="Details"
+                                asp-route-noticeid="@notice.NoticeId"
+                                class="btn btn-info btn-sm">
+                                    Details
+                                </a>
 
-                            <a asp-action="Details"
-                               asp-route-noticeid="@notice.NoticeId"
-                               class="btn btn-info btn-sm">
-                                Details
-                            </a>
+                                <a asp-action="Edit"
+                                asp-route-noticeid="@notice.NoticeId"
+                                class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
 
-                            <a asp-action="Edit"
-                               asp-route-noticeid="@notice.NoticeId"
-                               class="btn btn-warning btn-sm">
-                                Edit
-                            </a>
+                                <a asp-action="Delete"
+                                asp-route-noticeid="@notice.NoticeId"
+                                class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
 
-                            <a asp-action="Delete"
-                               asp-route-noticeid="@notice.NoticeId"
-                               class="btn btn-danger btn-sm">
-                                Delete
-                            </a>
-
-                        </div>
+                            </div>
+                        }
 
                     </div>
 

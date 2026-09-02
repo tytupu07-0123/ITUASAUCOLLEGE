@@ -16,10 +16,12 @@
     }
 </style>
 <h1>Teachers</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Teacher</a>
+    </p>
+}   
 <table class="table">
     <thead>
         <tr>
