@@ -17,8 +17,12 @@ namespace ITU_ASAU_COLLEGE.Controllers
         public IActionResult Index()
         {
             var email = User.Identity.Name; // Get the logged-in user's email
+            //Find the student by their email
             var student = _context.Student.FirstOrDefault(s => s.Email == email);
-            if (student == null) { return NotFound(); }
+            if (student == null) 
+            {
+                return NotFound();
+            }
             return View(student);
         }
     }

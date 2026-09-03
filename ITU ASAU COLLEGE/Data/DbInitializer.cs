@@ -21,27 +21,27 @@ namespace ITU_ASAU_COLLEGE.Data
 
             var students = new Student[]
             {
-               new Student{FirstName="John",LastName="Doe",Gender="Male",ClassCode=(ClassCode)9,Email="john.doe@example.com",DateOfBirth=DateTime.Parse("2005-05-15")},
-               new Student{FirstName="Emma",LastName="Johnson",Gender="Female",ClassCode=(ClassCode)10,Email="emma.johnson@example.com",DateOfBirth=DateTime.Parse("2006-03-15")},
-               new Student{FirstName="Liam",LastName="Williams",Gender="Male",ClassCode=(ClassCode)11,Email="liam.williams@example.com",DateOfBirth=DateTime.Parse("2005-07-22")},
-               new Student{FirstName="Olivia",LastName="Brown",Gender="Female",ClassCode=(ClassCode)12,Email="olivia.brown@example.com",DateOfBirth=DateTime.Parse("2004-11-05")},
-               new Student{FirstName="Noah",LastName="Jones",Gender="Male",ClassCode=(ClassCode)9,Email="noah.jones@example.com",DateOfBirth=DateTime.Parse("2007-06-18")},
-               new Student{FirstName="Ava",LastName="Garcia",Gender="Female",ClassCode=(ClassCode)10,Email="ava.garcia@example.com",DateOfBirth=DateTime.Parse("2006-09-09")},
-               new Student{FirstName="Elijah",LastName="Miller",Gender="Male",ClassCode=(ClassCode)11,Email="elijah.miller@example.com",DateOfBirth=DateTime.Parse("2005-12-01")},
-               new Student{FirstName="Sophia",LastName="Davis",Gender="Female",ClassCode=(ClassCode)12,Email="sophia.davis@example.com",DateOfBirth=DateTime.Parse("2004-08-19")},
-               new Student{FirstName="James",LastName="Rodriguez",Gender="Male",ClassCode=(ClassCode)9,Email="james.rodriguez@example.com",DateOfBirth=DateTime.Parse("2007-02-11")},
-               new Student{FirstName="Isabella",LastName="Martinez",Gender="Female",ClassCode=(ClassCode)10,Email="isabella.martinez@example.com",DateOfBirth=DateTime.Parse("2006-10-23")},
-               new Student{FirstName="Benjamin",LastName="Hernandez",Gender="Male",ClassCode=(ClassCode)11,Email="benjamin.hernandez@example.com",DateOfBirth=DateTime.Parse("2005-04-30")},
-               new Student{FirstName="Mia",LastName="Lopez",Gender="Female",ClassCode=(ClassCode)12,Email="mia.lopez@example.com",DateOfBirth=DateTime.Parse("2004-01-14")},
-               new Student{FirstName="Lucas",LastName="Gonzalez",Gender="Male",ClassCode=(ClassCode)9,Email="lucas.gonzalez@example.com",DateOfBirth=DateTime.Parse("2007-07-07")},
-               new Student{FirstName="Charlotte",LastName="Wilson",Gender="Female",ClassCode=(ClassCode)10,Email="charlotte.wilson@example.com",DateOfBirth=DateTime.Parse("2006-05-29")},
-               new Student{FirstName="Henry",LastName="Anderson",Gender="Male",ClassCode=(ClassCode)11,Email="henry.anderson@example.com",DateOfBirth=DateTime.Parse("2005-09-12")},
-               new Student{FirstName="Amelia",LastName="Thomas",Gender="Female",ClassCode=(ClassCode)12,Email="amelia.thomas@example.com",DateOfBirth=DateTime.Parse("2004-03-03")},
-               new Student{FirstName="Alexander",LastName="Taylor",Gender="Male",ClassCode=(ClassCode)9,Email="alexander.taylor@example.com",DateOfBirth=DateTime.Parse("2007-11-20")},
-               new Student{FirstName="Harper",LastName="Moore",Gender="Female",ClassCode=(ClassCode)10,Email="harper.moore@example.com",DateOfBirth=DateTime.Parse("2006-06-16")},
-               new Student{FirstName="Daniel",LastName="Jackson",Gender="Male",ClassCode=(ClassCode)11,Email="daniel.jackson@example.com",DateOfBirth=DateTime.Parse("2005-02-25")},
-               new Student{FirstName="Evelyn",LastName="Martin",Gender="Female",ClassCode=(ClassCode)12,Email="evelyn.martin@example.com",DateOfBirth=DateTime.Parse("2004-12-10")},
-               new Student{FirstName="Matthew",LastName="Lee",Gender="Male",ClassCode=(ClassCode)9,Email="matthew.lee@example.com",DateOfBirth=DateTime.Parse("2007-04-04")}
+               new Student{FirstName="John",LastName="Doe",Gender="Male",ClassCode=(ClassCode)9,Email="john.doe@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-05-15")},
+               new Student{FirstName="Emma",LastName="Johnson",Gender="Female",ClassCode=(ClassCode)10,Email="emma.johnson@IAC.edu.ws",DateOfBirth=DateTime.Parse("2006-03-15")},
+               new Student{FirstName="Liam",LastName="Williams",Gender="Male",ClassCode=(ClassCode)11,Email="liam.williams@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-07-22")},
+               new Student{FirstName="Olivia",LastName="Brown",Gender="Female",ClassCode=(ClassCode)12,Email="olivia.brown@IAC.edu.ws",DateOfBirth=DateTime.Parse("2004-11-05")},
+               new Student{FirstName="Noah",LastName="Jones",Gender="Male",ClassCode=(ClassCode)9,Email="noah.jones@IAC.edu.ws",DateOfBirth=DateTime.Parse("2007-06-18")},
+               new Student{FirstName="Ava",LastName="Garcia",Gender="Female",ClassCode=(ClassCode)10,Email="ava.garcia@IAC.edu.ws",DateOfBirth=DateTime.Parse("2006-09-09")},
+               new Student{FirstName="Elijah",LastName="Miller",Gender="Male",ClassCode=(ClassCode)11,Email="elijah.miller@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-12-01")},
+               new Student{FirstName="Sophia",LastName="Davis",Gender="Female",ClassCode=(ClassCode)12,Email="sophia.davis@IAC.edu.ws",DateOfBirth=DateTime.Parse("2004-08-19")},
+               new Student{FirstName="James",LastName="Rodriguez",Gender="Male",ClassCode=(ClassCode)9,Email="james.rodriguez@IAC.edu.ws",DateOfBirth=DateTime.Parse("2007-02-11")},
+               new Student{FirstName="Isabella",LastName="Martinez",Gender="Female",ClassCode=(ClassCode)10,Email="isabella.martinez@IAC.edu.ws",DateOfBirth=DateTime.Parse("2006-10-23")},
+               new Student{FirstName="Benjamin",LastName="Hernandez",Gender="Male",ClassCode=(ClassCode)11,Email="benjamin.hernandez@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-04-30")},
+               new Student{FirstName="Mia",LastName="Lopez",Gender="Female",ClassCode=(ClassCode)12,Email="mia.lopez@IAC.edu.ws",DateOfBirth=DateTime.Parse("2004-01-14")},
+               new Student{FirstName="Lucas",LastName="Gonzalez",Gender="Male",ClassCode=(ClassCode)9,Email="lucas.gonzalez@IAC.edu.ws",DateOfBirth=DateTime.Parse("2007-07-07")},
+               new Student{FirstName="Charlotte",LastName="Wilson",Gender="Female",ClassCode=(ClassCode)10,Email="charlotte.wilson@IAC.edu.ws",DateOfBirth=DateTime.Parse("2006-05-29")},
+               new Student{FirstName="Henry",LastName="Anderson",Gender="Male",ClassCode=(ClassCode)11,Email="henry.anderson@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-09-12")},
+               new Student{FirstName="Amelia",LastName="Thomas",Gender="Female",ClassCode=(ClassCode)12,Email="amelia.thomas@IAC.edu.ws",DateOfBirth=DateTime.Parse("2004-03-03")},
+               new Student{FirstName="Alexander",LastName="Taylor",Gender="Male",ClassCode=(ClassCode)9,Email="alexander.taylor@IAC.edu.ws",DateOfBirth=DateTime.Parse("2007-11-20")},
+               new Student{FirstName="Harper",LastName="Moore",Gender="Female",ClassCode=(ClassCode)10,Email="harper.moore@IAC.edu.ws",DateOfBirth=DateTime.Parse("2006-06-16")},
+               new Student{FirstName="Daniel",LastName="Jackson",Gender="Male",ClassCode=(ClassCode)11,Email="daniel.jackson@IAC.edu.ws",DateOfBirth=DateTime.Parse("2005-02-25")},
+               new Student{FirstName="Evelyn",LastName="Martin",Gender="Female",ClassCode=(ClassCode)12,Email="evelyn.martin@IAC.edu.ws",DateOfBirth=DateTime.Parse("2004-12-10")},
+               new Student{FirstName="Matthew",LastName="Lee",Gender="Male",ClassCode=(ClassCode)9,Email="matthew.lee@IAC.edu.ws",DateOfBirth=DateTime.Parse("2007-04-04")}
 
             };
             foreach (Student s in students)

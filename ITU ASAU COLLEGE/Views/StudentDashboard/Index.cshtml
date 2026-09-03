@@ -1,0 +1,17 @@
+﻿@model Student
+
+<h1>Student Dashboard</h1>
+<h2>Welcome, @Model.FirstName @Model.LastName</h2>
+
+<h3>My Information</h3>
+
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Student ID:</strong> @Model.StudentId</p>
+<p><strong>First Name:</strong> @Model.FirstName</p>
+<p><strong>Last Name:</strong> @Model.LastName</p>
+<p><strong>Date of Birth:</strong> @Model.DateOfBirth</p>
+<p><strong>Gender:</strong> @Model.Gender</p>
+
+<a 
+asp-controller="Enrollments"asp-action="Create"class="btn btn-primary">Enrollment Form
+</a>
