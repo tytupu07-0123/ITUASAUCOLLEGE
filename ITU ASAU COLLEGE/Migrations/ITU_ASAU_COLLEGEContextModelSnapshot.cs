@@ -195,6 +195,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TeacherName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -1,0 +1,167 @@
+﻿@model IEnumerable<ITU_ASAU_COLLEGE.Models.Student>
+
+@{
+
+    ViewData["Title"] = "Teacher Dashboard";
+
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-5">
+        <h1>Teacher Dashboard</h1>
+
+        <p class="lead">
+
+            Welcome, @User.Identity?.Name
+        </p>
+    </div>
+
+ 
+    <!-- Dashboard Buttons -->
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center">
+                <h4>Student Records</h4>
+
+                <p>
+
+                    View students and enter their results.
+                </p>
+
+                <a asp-controller="TeacherStudents"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    View Students
+                </a>
+            </div>
+        </div>
+
+ 
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center">
+                <h4>Results</h4>
+
+                <p>
+
+                    Upload and manage student results.
+                </p>
+
+                <a asp-controller="Results"
+                   asp-action="Index"
+                   class="btn btn-success">
+
+                    Manage Results
+                </a>
+            </div>
+        </div>
+
+ 
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center">
+                <h4>Attendance</h4>
+
+                <p>
+
+                    Record attendance for each class.
+                </p>
+
+                <a asp-controller="Attendance"
+                   asp-action="Index"
+                   class="btn btn-warning">
+
+                    Record Attendance
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+ 
+    <!-- Student Records -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <h3>Student Records</h3>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var student in Model)
+
+                    {
+                        <tr>
+
+                            <td>
+
+                                @student.StudentId
+                            </td>
+
+                            <td>
+
+                                @student.FirstName
+                            </td>
+
+                            <td>
+
+                                @student.LastName
+                            </td>
+
+                            <td>
+
+                                @student.Email
+                            </td>
+
+                            <td>
+
+                                <a asp-controller="Results"
+                                   asp-action="Create"
+                                   asp-route-studentId="@student.StudentId"
+                                   class="btn btn-sm btn-success">
+
+                                    Enter Result
+                                </a>
+
+                                <a asp-controller="Attendance"
+                                   asp-action="Create"
+                                   asp-route-studentId="@student.StudentId"
+                                   class="btn btn-sm btn-warning">
+
+                                    Attendance
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+ 

@@ -121,6 +121,8 @@ namespace ITU_ASAU_COLLEGE.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            var testEmail = Input?.Email;
+            Console.WriteLine("EMAIL RECEIVED: " + testEmail);
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)

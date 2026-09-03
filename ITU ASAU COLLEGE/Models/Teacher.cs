@@ -8,5 +8,6 @@
         public int ClassCode { get; set; }
 
         public ICollection<Notice>? Notice { get; set; }
+        public string? Email { get; internal set; }
     }
 }
