@@ -8,6 +8,8 @@ namespace ITU_ASAU_COLLEGE.Areas.Identity.Data;
 public class ITU_ASAU_COLLEGEContext 
     : IdentityDbContext<IdentityUser>
 {
+    public DbSet<ITU_ASAU_COLLEGE.Models.Result> Result { get; set; } = default!;
+    public DbSet<ITU_ASAU_COLLEGE.Models.Attendance> Attendance { get; set; } = default!;
     public ITU_ASAU_COLLEGEContext(DbContextOptions<ITU_ASAU_COLLEGEContext> options)
         : base(options)
     {

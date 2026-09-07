@@ -3,7 +3,8 @@
     public class Teacher
     {
         public int TeacherId { get; set; }
-        public required string TeacherName { get; set; }
+        public required string FirstName { get; set; }
+        public required string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int ClassCode { get; set; }
 
