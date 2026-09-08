@@ -17,12 +17,9 @@ public class AttendancesController : Controller
 
     // GET: ATTENDANCES
     [Authorize(Roles = "Admin, Teacher")]
-    public async Task<IActionResult> Index(int? studentid)
+    public async Task<IActionResult> Index()
     {
-        if (studentid.HasValue)
-        {
-            return View(await _context.Attendance.Where(a => a.StudentId == studentid.Value).ToListAsync());
-        }
+       
         return View(await _context.Attendance.ToListAsync());
     }
 

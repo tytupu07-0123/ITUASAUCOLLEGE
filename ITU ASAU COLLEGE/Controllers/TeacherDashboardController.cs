@@ -17,12 +17,12 @@ namespace ITU_ASAU_COLLEGE.Controllers
         {
             var email = User.Identity.Name; // Get the logged-in user's email
             // Find the teacher by their email
-            var student = await _context.Student.FirstOrDefaultAsync(t => t.Email == email);
-            if (student == null)
+            var Teacher = await _context.Teacher.FirstOrDefaultAsync(t => t.Email == email);
+            if (Teacher == null)
             {
                 return NotFound();
             }
-            return View(student);
+            return View(Teacher);
         }
     }
 }
