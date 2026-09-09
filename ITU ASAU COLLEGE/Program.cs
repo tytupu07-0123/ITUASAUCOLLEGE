@@ -100,7 +100,7 @@ public partial class Program
                 {
                     UserName = email,
                     Email = email,
-
+                    
                 };
 
                 await userManager.CreateAsync(user, password);
@@ -118,8 +118,5 @@ public partial class Program
         app.Run();
     }
 
-    private static void AddGoogle(Action<object> value)
-    {
-        throw new NotImplementedException();
-    }
+   
 }

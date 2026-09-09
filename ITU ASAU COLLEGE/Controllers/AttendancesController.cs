@@ -15,7 +15,7 @@ public class AttendancesController : Controller
         _context = context;
     }
 
-    // GET: ATTENDANCES
+    // GET: Attendances
     [Authorize(Roles = "Admin, Teacher")]
     public async Task<IActionResult> Index()
     {
@@ -23,7 +23,7 @@ public class AttendancesController : Controller
         return View(await _context.Attendance.ToListAsync());
     }
 
-    // GET: ATTENDANCES/Details/5
+    // GET: Attendances/Details/5
     [Authorize(Roles = "Admin, Teacher")]
     public async Task<IActionResult> Details(int? attendanceid)
     {
@@ -42,14 +42,14 @@ public class AttendancesController : Controller
         return View(attendance);
     }
 
-    // GET: ATTENDANCES/Create
+    // GET: Attendances/Create
     [Authorize(Roles = "Admin, Teacher")]
     public IActionResult Create()
     {
         return View();
     }
 
-    // POST: ATTENDANCES/Create
+    // POST: Attendances/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
@@ -65,7 +65,7 @@ public class AttendancesController : Controller
         return View(attendance);
     }
 
-    // GET: ATTENDANCES/Edit/5
+    // GET: Attendances/Edit/5
     public async Task<IActionResult> Edit(int? attendanceid)
     {
         if (attendanceid == null)
@@ -81,7 +81,7 @@ public class AttendancesController : Controller
         return View(attendance);
     }
 
-    // POST: ATTENDANCES/Edit/5
+    // POST: Attendances/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
@@ -116,7 +116,7 @@ public class AttendancesController : Controller
         return View(attendance);
     }
 
-    // GET: ATTENDANCES/Delete/5
+    // GET: Attendances/Delete/5
     public async Task<IActionResult> Delete(int? attendanceid)
     {
         if (attendanceid == null)
@@ -134,7 +134,7 @@ public class AttendancesController : Controller
         return View(attendance);
     }
 
-    // POST: ATTENDANCES/Delete/5
+    // POST: Attendances/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? attendanceid)

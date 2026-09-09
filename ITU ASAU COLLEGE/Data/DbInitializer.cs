@@ -2,13 +2,14 @@
 using ITU_ASAU_COLLEGE.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NuGet.DependencyResolver;
 using System;
 
 namespace ITU_ASAU_COLLEGE.Data
 {
     public class DbInitializer : DropCreatedDatabaseIfModelChanges<ITU_ASAU_COLLEGEContext>
     {
-        public static void Initialize(ITU_ASAU_COLLEGEContext context)
+        public static async Task Initialize(ITU_ASAU_COLLEGEContext context)
         {
             context.Database.Migrate();
 
@@ -164,7 +165,7 @@ namespace ITU_ASAU_COLLEGE.Data
                 new Teacher{FirstName="Sarah",LastName="Taylor",DateOfBirth=DateTime.Parse("1963-03-15"),ClassCode=9,Email="dr.taylor@IAC.edu.ws"},
                 new Teacher{FirstName="Lisa",LastName="Moore",DateOfBirth=DateTime.Parse("1955-11-08"),ClassCode=11,Email="dr.moore@IAC.edu.ws"},
                 new Teacher{FirstName="Kevin",LastName="Jackson",DateOfBirth=DateTime.Parse("1964-09-28"),ClassCode=12,Email="dr.jackson@IAC.edu.ws"},
-                new Teacher{FirstName=" Amanda",LastName="Martin",DateOfBirth=DateTime.Parse("1957-06-30"),ClassCode=10,Email="dr.martin@IAC.edu.ws"},
+                new Teacher{FirstName="Amanda",LastName="Martin",DateOfBirth=DateTime.Parse("1957-06-30"),ClassCode=10,Email="dr.martin@IAC.edu.ws"},
             };
             foreach (Teacher t in teachers)
             {
@@ -177,6 +178,8 @@ namespace ITU_ASAU_COLLEGE.Data
     public class DropCreatedDatabaseIfModelChanges<T>
     {
     }
+
+    
 }
 
     

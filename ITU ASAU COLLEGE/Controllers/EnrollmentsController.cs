@@ -13,14 +13,14 @@ public class EnrollmentsController : Controller
         _context = context;
     }
     
-    // GET: ENROLLMENTS
+    // GET: Enrollments
     public async Task<IActionResult> Index()    
     {
         return View(await _context.Enrollment.ToListAsync());
 
     }
 
-    // GET: ENROLLMENTS/Details/5
+    // GET: Enrollments/Details/5
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Details(int?id)
     {
@@ -39,14 +39,14 @@ public class EnrollmentsController : Controller
         return View(enrollment);
     }
     
-    // GET: ENROLLMENTS/Create
+    // GET: Enrollments/Create
     [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
         return View();
     }
     //Student enrolment form
-    // POST: ENROLLMENTS/Create
+    // POST: Enrollments/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
@@ -63,7 +63,7 @@ public class EnrollmentsController : Controller
         return View(enrollment);
     }
     [Authorize(Roles = "Admin")]
-    // GET: ENROLLMENTS/Edit/5
+    // GET: Enrollments/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -79,7 +79,7 @@ public class EnrollmentsController : Controller
         return View(enrollment);
     }
 
-    // POST: ENROLLMENTS/Edit/5
+    // POST: Enrollments/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
@@ -115,7 +115,7 @@ public class EnrollmentsController : Controller
         return View(enrollment);
     }
     [Authorize(Roles = "Admin")]
-    // GET: ENROLLMENTS/Delete/5
+    // GET: Enrollments/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null)
@@ -133,7 +133,7 @@ public class EnrollmentsController : Controller
         return View(enrollment);
     }
 
-    // POST: ENROLLMENTS/Delete/5
+    // POST: Enrollments/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     [Authorize(Roles = "Admin")]

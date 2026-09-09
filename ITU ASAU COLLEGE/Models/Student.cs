@@ -19,6 +19,8 @@ namespace ITU_ASAU_COLLEGE.Models
     }
     public class Student
     {
+        internal object? Name;
+
         public int StudentId { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
