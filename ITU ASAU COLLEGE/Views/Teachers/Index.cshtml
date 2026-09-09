@@ -38,6 +38,8 @@
                 @Html.DisplayNameFor(model => model.ClassCode)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Email)
+            <th>
                 Actions
             </th>
         </tr>
@@ -56,6 +58,9 @@
             <td>
                     @Html.DisplayFor(modelItem => item.ClassCode)
             </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
             <td>
                     @if (User.IsInRole("Admin"))
                     {

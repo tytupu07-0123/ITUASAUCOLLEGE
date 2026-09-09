@@ -20,7 +20,10 @@ public class AttendancesController : Controller
     public async Task<IActionResult> Index()
     {
        
-        return View(await _context.Attendance.ToListAsync());
+        var attendances = await _context.Attendance
+            .Include(a => a.Student)
+            .ToListAsync();
+        return View(attendances);
     }
 
     // GET: Attendances/Details/5

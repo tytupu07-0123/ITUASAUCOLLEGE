@@ -74,12 +74,19 @@
             </td>
             <td>
                     
-                    <ul>
-                        @foreach (var enrollment in item.Enrollments)
-                        {
-                            <li>@enrollment.CourseName</li>
-                        }
-                    </ul>
+                    @if (item.Enrollments != null && item.Enrollments.Any())
+                    {
+                        <ul>
+                            @foreach (var enrollment in item.Enrollments)
+                            {
+                                <li>@enrollment.CourseName</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>No Enrollments</span>
+                    }
                     
             </td>
             <td>

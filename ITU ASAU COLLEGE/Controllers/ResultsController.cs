@@ -16,7 +16,10 @@ public class ResultsController : Controller
     // GET: Results
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Result.ToListAsync());
+        var results = await _context.Result
+            .Include(r => r.Student)
+            .ToListAsync();
+        return View(results);
     }
 
     // GET: Results/Details/5

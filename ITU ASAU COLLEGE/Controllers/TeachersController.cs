@@ -58,7 +58,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("TeacherId,TeacherName,DateOfBirth")] Teacher teacher)
+        public async Task<IActionResult> Create([Bind("TeacherId,FirstName,LastName,Email,DateOfBirth")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("TeacherId,TeacherName,DateOfBirth")] Teacher teacher)
+        public async Task<IActionResult> Edit(int id, [Bind("TeacherId,FirstName,LastName,Email,DateOfBirth")] Teacher teacher)
         {
             if (id != teacher.TeacherId)
             {
