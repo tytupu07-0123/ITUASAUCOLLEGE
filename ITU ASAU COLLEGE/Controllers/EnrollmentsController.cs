@@ -40,7 +40,7 @@ public class EnrollmentsController : Controller
     }
     
     // GET: Enrollments/Create
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Teacher,Student")]
     public IActionResult Create()
     {
         return View();

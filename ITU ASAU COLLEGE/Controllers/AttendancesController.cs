@@ -27,7 +27,7 @@ public class AttendancesController : Controller
     }
 
     // GET: Attendances/Details/5
-    [Authorize(Roles = "Admin, Teacher")]
+    [Authorize(Roles = "Admin, Teacher, Student")]
     public async Task<IActionResult> Details(int? attendanceid)
     {
         if (attendanceid == null)

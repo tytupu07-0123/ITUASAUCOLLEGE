@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ITU_ASAU_COLLEGE.Models;
 using ITU_ASAU_COLLEGE.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize(Roles = "Admin, Teacher")]
 public class ResultsController : Controller
 {
     private readonly ITU_ASAU_COLLEGEContext _context;
@@ -63,6 +65,7 @@ public class ResultsController : Controller
     }
 
     // GET: Results/Edit/5
+    [Authorize(Roles = "Admin, Teacher, Student")]
     public async Task<IActionResult> Edit(int? resultid)
     {
         if (resultid == null)

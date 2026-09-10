@@ -36,8 +36,8 @@ namespace ITU_ASAU_COLLEGE.Models
         [Required]
 
         public ICollection<Enrollment>? Enrollments { get; set; }
-        
 
+        
     }
 
 

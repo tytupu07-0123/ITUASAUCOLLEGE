@@ -15,6 +15,22 @@
 <p><strong>Date of Birth:</strong> @Model.DateOfBirth</p>
 <p><strong>Gender:</strong> @Model.Gender</p>
 
-<a 
-asp-controller="Enrollments"asp-action="Create"class="btn btn-primary">Enrollment Form
-</a>
+<a asp-controller="Enrollments"asp-action="Create"class="btn btn-primary">Enrollment Form</a>
+<a asp-controller="Results" asp-action="Index" class="btn btn-secondary">View Results</a>
+<a asp-controller="Attendance" asp-action="Index" class="btn btn-success">View Attendance</a>
+
+<style>
+    .h1 {
+        color: #2c3e50;
+        font-family: Arial, sans-serif;
+        accent-color: #2980b9;
+        font-size: 36px;
+    }
+
+    .h2 {
+        color: #34495e;
+        font-family: Arial, sans-serif;
+        font-size: abs()
+    }
+
+</style>

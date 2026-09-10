@@ -8,7 +8,7 @@ namespace ITU_ASAU_COLLEGE.Models
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int ClassCode { get; set; }
+        public ClassCode ClassCode { get; set; }
         [Required]
         [EmailAddress]
         public string? Email { get; set; }
