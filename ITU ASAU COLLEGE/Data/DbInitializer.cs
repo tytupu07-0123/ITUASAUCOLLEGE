@@ -9,6 +9,7 @@ namespace ITU_ASAU_COLLEGE.Data
 {
     public class DbInitializer : DropCreatedDatabaseIfModelChanges<ITU_ASAU_COLLEGEContext>
     {
+
         public static async Task Initialize(ITU_ASAU_COLLEGEContext context)
         {
             context.Database.Migrate();
@@ -173,10 +174,12 @@ namespace ITU_ASAU_COLLEGE.Data
             }
             context.SaveChanges();
         }
+
     }
 
     public class DropCreatedDatabaseIfModelChanges<T>
     {
+
     }
 
     

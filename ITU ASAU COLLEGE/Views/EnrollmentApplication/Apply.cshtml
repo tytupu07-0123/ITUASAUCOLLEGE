@@ -1,0 +1,181 @@
+﻿@model ITU_ASAU_COLLEGE.Models.EnrollmentApplication
+
+@{
+    ViewData["Title"] = "School Enrolment";
+}
+
+<div class="container mt-5 mb-5">
+
+    <div class="text-center mb-4">
+        <h1>School Enrolment Application</h1>
+        <p class="lead">
+            Welcome to ITU ASAU COLLEGE.
+            Please complete the form below to apply for enrolment.
+        </p>
+    </div>
+
+    <div class="card shadow p-4">
+
+        <form asp-action="Apply" method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger mb-3">
+            </div>
+
+            <h4 class="mb-3">Applicant Information</h4>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <input asp-for="FirstName"
+                           class="form-control"
+                           placeholder="Enter first name" />
+                    <span asp-validation-for="FirstName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="LastName" class="form-label"></label>
+                    <input asp-for="LastName"
+                           class="form-control"
+                           placeholder="Enter last name" />
+                    <span asp-validation-for="LastName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email"
+                           class="form-control"
+                           placeholder="Enter email address" />
+                    <span asp-validation-for="Email"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PhoneNumber" class="form-label"></label>
+                    <input asp-for="PhoneNumber"
+                           class="form-control"
+                           placeholder="Enter phone number" />
+                    <span asp-validation-for="PhoneNumber"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DateOfBirth"
+                           class="form-label"></label>
+                    <input asp-for="DateOfBirth"
+                           class="form-control" />
+                    <span asp-validation-for="DateOfBirth"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Gender"
+                           class="form-label"></label>
+
+                    <select asp-for="Gender"
+                            class="form-select">
+
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+
+                    <span asp-validation-for="Gender"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label asp-for="YearLevel"
+                           class="form-label"></label>
+
+                    <select asp-for="YearLevel"
+                            class="form-select">
+
+                        <option value="">Select Year Level</option>
+                        <option value="Yr 9">Yr 9</option>
+                        <option value="Yr 10">Yr 10</option>
+                        <option value="Yr 11">Yr 11</option>
+                        <option value="Yr 12">Yr 12</option>
+
+                    </select>
+
+                    <span asp-validation-for="YearLevel"
+                          class="text-danger"></span>
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            <h4 class="mb-3">Parent / Guardian Information</h4>
+
+            <div class="mb-3">
+
+                <label asp-for="ParentGuardianName"
+                       class="form-label"></label>
+
+                <input asp-for="ParentGuardianName"
+                       class="form-control"
+                       placeholder="Enter parent or guardian name" />
+
+                <span asp-validation-for="ParentGuardianName"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="Address"
+                       class="form-label"></label>
+
+                <textarea asp-for="Address"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Enter residential address"></textarea>
+
+                <span asp-validation-for="Address"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="AdditionalInformation"
+                       class="form-label"></label>
+
+                <textarea asp-for="AdditionalInformation"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Enter any additional information"></textarea>
+
+                <span asp-validation-for="AdditionalInformation"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="text-center mt-4">
+
+                <button type="submit"
+                        class="btn btn-primary btn-lg">
+                    Submit Enrolment Application
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

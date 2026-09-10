@@ -134,7 +134,7 @@ namespace ITU_ASAU_COLLEGE.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded) 
                 {
-                    await _userManager.AddToRoleAsync(user, "Student");
+                    await _userManager.AddToRoleAsync(user, "Student,Teacher");
                 }
 
                 if (result.Succeeded)
