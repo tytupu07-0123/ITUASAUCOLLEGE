@@ -13,7 +13,18 @@ namespace ITU_ASAU_COLLEGE.Data
         public static async Task Initialize(ITU_ASAU_COLLEGEContext context)
         {
             context.Database.Migrate();
-
+            if (!await RoleManager.RoleExistsAsync("Teacher"))
+            {
+                await RoleManager.CreateAsync(new IdentityRole("Teacher"));
+            }
+            if (!await RoleManager.RoleExistsAsync("Admin"))
+            {
+                await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+            if (!await RoleManager.RoleExistsAsync("Student"))
+            {
+                await RoleManager.CreateAsync(new IdentityRole("Student"));
+            }
             //Look for any students.
             if (context.Student.Any())
             {

@@ -9,34 +9,11 @@ using ITU_ASAU_COLLEGE.Data;
 namespace ITU_ASAU_COLLEGE.Controllers
 {
     [Authorize(Roles = "Teacher")]
-    public class TeachersDashboardController : Controller
+    public class TeacherDashboardController : Controller
     {
-        private readonly ITU_ASAU_COLLEGEContext _context;
-        private UserManager<IdentityUser> _userManager;
-
-        public TeachersDashboardController(ITU_ASAU_COLLEGEContext context, UserManager<IdentityUser> userManager)
+        public IActionResult Index()
         {
-            _context = context;
-            _userManager = userManager;
-        }
-
-        public async Task<IActionResult> IndexAsync()
-        {
-            var user = await _userManager.GetUserAsync(User);
-
-            if (user == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
-            var teacher = await _context.Teacher
-                .FirstOrDefaultAsync(t => t.Email == user.Email);
-
-            if (teacher == null)
-            {
-                return NotFound("Teacher record not found.");
-            }
-            return View(teacher);
+            return View();
         }
     }
 }

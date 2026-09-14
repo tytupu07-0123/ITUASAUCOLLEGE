@@ -134,7 +134,21 @@ namespace ITU_ASAU_COLLEGE.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded) 
                 {
-                    await _userManager.AddToRoleAsync(user, "Student,Teacher");
+                    if (Input.Email.EndsWith("@IAC.edu.ws", StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (Input.Email.StartsWith("dr.", StringComparison.OrdinalIgnoreCase))
+                        {
+                            await _userManager.AddToRoleAsync(user, "Teacher");
+                        }
+                        else
+                        {
+                            await _userManager.AddToRoleAsync(user, "Student");
+                        }
+                    }
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    return LocalRedirect(returnUrl);
                 }
 
                 if (result.Succeeded)

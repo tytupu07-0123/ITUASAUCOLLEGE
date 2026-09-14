@@ -28,14 +28,30 @@
                     <li class="nav-item">
                         <a class="nav-link text-blue" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-blue" asp-area="" asp-controller="AboutUs" asp-action="Index">About Us</a>
-                    </li>
+              
                     <li class="nav-item">
                         <a class="nav-link text-blue" asp-area="" asp-controller="Notices" asp-action="Index">Notices</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-blue" asp-area="" asp-controller="EnrollmentApplication" asp-action="Apply">Apply</a>
+                    </li>
                     </ul>
-                    <partial name="_LoginPartial" />    
+
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <div class="dropdown">
+                            <button class="profile-button dropdown-toogle"
+                                    type="button"
+                                    id="profileDropdown"
+                                    data-bs-toogle="dropdown"
+                                    aria-expanded="false">
+
+                                <span class="profile-name">
+                                    @User.Identity.Name
+                                </span>
+                                   
+                        </div>
+                    }
                 </div>
          </div>
        

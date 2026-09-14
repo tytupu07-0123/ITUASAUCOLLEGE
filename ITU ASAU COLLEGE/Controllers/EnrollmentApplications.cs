@@ -3,6 +3,7 @@ using ITU_ASAU_COLLEGE.Data;
 using ITU_ASAU_COLLEGE.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITU_ASAU_COLLEGE.Controllers
 {
@@ -16,14 +17,14 @@ namespace ITU_ASAU_COLLEGE.Controllers
             _context = context;
         }
 
-        // PUBLIC ENROLMENT FORM
+        // Public application form
         [HttpGet]
         public IActionResult Apply()
         {
             return View();
         }
 
-        // SUBMIT APPLICATION
+        // Submit application form  
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Apply(EnrollmentApplication application)
@@ -42,14 +43,14 @@ namespace ITU_ASAU_COLLEGE.Controllers
             return RedirectToAction(nameof(ApplicationSubmitted));
         }
 
-        // SUBMISSION SUCCESS PAGE
+        // Submission confirmation page
         [HttpGet]
         public IActionResult ApplicationSubmitted()
         {
             return View();
         }
 
-        // ADMIN APPLICATION LIST
+        // Admin view of all applications
         [HttpGet]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
         public async Task<IActionResult> AdminApplications()
@@ -61,7 +62,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             return View(applications);
         }
 
-        // ADMIN ACCEPT
+        // Admin accept application
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
@@ -82,7 +83,7 @@ namespace ITU_ASAU_COLLEGE.Controllers
             return RedirectToAction(nameof(AdminApplications));
         }
 
-        // ADMIN REJECT
+        // Admin reject application
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
