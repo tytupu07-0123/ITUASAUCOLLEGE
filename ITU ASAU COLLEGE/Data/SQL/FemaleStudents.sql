@@ -1,1 +1,1 @@
-﻿SELECT * FROM Students WHERE Gender = "Female"
+﻿SELECT * FROM Student WHERE Gender= 'Female';

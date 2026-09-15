@@ -1,1 +1,1 @@
-﻿SELECT * FROM Teachers WHERE ClassCode = "10"
+﻿SELECT * FROM Teacher WHERE ClassCode = 'Yr 10'

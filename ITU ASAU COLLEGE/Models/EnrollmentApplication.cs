@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ITU_ASAU_COLLEGE.Models
 {
     public enum ApplicationStatus
@@ -45,6 +46,10 @@ namespace ITU_ASAU_COLLEGE.Models
         [Required]
         [Display(Name = "Year Level")]
         public string YearLevel { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "Courses")]
+        public string Courses { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Parent/Guardian Name")]

@@ -109,6 +109,43 @@
 
                 </div>
 
+                <div class="col-md-6 mb-3">
+
+                    <label asp-for="Courses"
+                           class="form-label"></label>
+
+                    <select asp-for="Courses"
+                            class="form-select">
+
+                        <option value="">Select Courses</option>
+                        <option value="English">English</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Visual Arts">Visual Arts</option>
+                        <option value="Physical Education">Physical Education</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Music">Music</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Business Studies">Business Studies</option>
+                        <option value="Geography">Geography</option>
+                        <option value="History">History</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Economics">Economics</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Literature">Literature</option>
+                        <option value="Sociology">Sociology</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Chemistry">Chemistry</option>
+                    </select>
+
+                    <span asp-validation-for="Courses"
+                          class="text-danger"></span>
+
+                </div>
+
             </div>
 
             <hr />

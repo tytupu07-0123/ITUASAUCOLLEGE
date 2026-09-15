@@ -1,3 +1,3 @@
 ﻿SELECT *
-FROM Students
+FROM Student
 WHERE StudentId = 1;

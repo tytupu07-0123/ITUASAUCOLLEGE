@@ -213,3 +213,106 @@ footer {
         background: #f8f9fa;
         transform: translateY(-2px);
     }
+
+/* =========================================
+   USER PROFILE DROPDOWN
+   ========================================= */
+
+.user-profile {
+    position: relative;
+}
+
+
+    /* Profile button */
+
+    .user-profile > .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 10px;
+    }
+
+
+/* Round profile icon */
+
+.profile-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #55c7e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    overflow: hidden;
+}
+
+
+/* User name */
+
+.user-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* Dropdown */
+
+.user-dropdown {
+    min-width: 190px;
+    border: none;
+    border-radius: 0;
+    padding: 8px 0;
+    background-color: #d9dee5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+    /* Dropdown options */
+
+    .user-dropdown .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        color: #333;
+        font-size: 15px;
+    }
+
+
+        /* Icons */
+
+        .user-dropdown .dropdown-item i {
+            font-size: 21px;
+            color: #333;
+        }
+
+
+        /* Hover */
+
+        .user-dropdown .dropdown-item:hover {
+            background-color: #c8ced6;
+            color: #111;
+        }
+
+
+    /* Logout button */
+
+    .user-dropdown form {
+        margin: 0;
+    }
+
+    .user-dropdown .logout-item {
+        width: 100%;
+        border: none;
+        background: transparent;
+        text-align: left;
+    }
+
+
+/* Remove Bootstrap focus outline */
+
+.user-profile > .nav-link:focus {
+    box-shadow: none;
+}
