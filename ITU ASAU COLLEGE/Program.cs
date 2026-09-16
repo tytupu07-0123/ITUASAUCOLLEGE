@@ -73,7 +73,7 @@ public partial class Program
         using (var scope = app.Services.CreateScope())
         {
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var roles = new[] { "Admin", "Teacher", "Student" };
+            var roles = new List<string> { "Admin", "Teacher", "Student" };
 
             foreach (var role in roles)
             {

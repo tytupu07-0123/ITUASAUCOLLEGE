@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITU_ASAU_COLLEGE.Controllers;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -47,10 +48,10 @@ namespace ITU_ASAU_COLLEGE.Models
         [Display(Name = "Year Level")]
         public string YearLevel { get; set; } = string.Empty;
 
-        public int CourseId { get; set; }
+        
         [Required]
         [Display(Name = "Courses")]
-        public Course Courses { get; set; } = null;
+        public ICollection<Course> Courses { get; set; } = new List<Course>();
 
         [Required]
         [Display(Name = "Parent/Guardian Name")]
@@ -66,5 +67,6 @@ namespace ITU_ASAU_COLLEGE.Models
         public DateTime ApplicationDate { get; set; } = DateTime.Now;
 
         public ApplicationStatus Status { get; set; } = ApplicationStatus.Pending;
+        
     }
 }

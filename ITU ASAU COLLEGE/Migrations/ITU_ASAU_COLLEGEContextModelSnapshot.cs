@@ -156,7 +156,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("ApplicationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CourseId")
+                    b.Property<int>("CoursesCourseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -197,7 +197,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasKey("EnrollmentApplicationId");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("CoursesCourseId");
 
                     b.ToTable("EnrollmentApplications");
                 });
@@ -587,7 +587,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
                 {
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Course", "Courses")
                         .WithMany()
-                        .HasForeignKey("CourseId")
+                        .HasForeignKey("CoursesCourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

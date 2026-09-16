@@ -164,7 +164,7 @@ namespace ITU_ASAU_COLLEGE.Areas.Identity.Pages.Account
                         new
                         {
                             ReturnUrl = returnUrl,
-                            RememberMe = Input.RememberMe
+                            Input.RememberMe
                         });
                 }
 
