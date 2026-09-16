@@ -47,9 +47,10 @@ namespace ITU_ASAU_COLLEGE.Models
         [Display(Name = "Year Level")]
         public string YearLevel { get; set; } = string.Empty;
 
+        public int CourseId { get; set; }
         [Required]
         [Display(Name = "Courses")]
-        public string Courses { get; set; } = string.Empty;
+        public Course Courses { get; set; } = null;
 
         [Required]
         [Display(Name = "Parent/Guardian Name")]

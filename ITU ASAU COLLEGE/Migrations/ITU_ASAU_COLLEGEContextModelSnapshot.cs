@@ -156,9 +156,8 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("ApplicationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Courses")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -197,6 +196,8 @@ namespace ITU_ASAU_COLLEGE.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EnrollmentApplicationId");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("EnrollmentApplications");
                 });
@@ -580,6 +581,17 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.EnrollmentApplication", b =>
+                {
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Course", "Courses")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Notice", b =>

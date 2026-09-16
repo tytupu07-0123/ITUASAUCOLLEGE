@@ -36,6 +36,7 @@
                         <th>Phone</th>
                         <th>Year Level</th>
                         <th>Application Date</th>
+                        <th>Courses</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -67,6 +68,10 @@
 
                             <td>
                                 @application.ApplicationDate.ToString("dd-MM-yyyy")
+                            </td>
+
+                            <td>
+                                @application.Courses
                             </td>
 
                             <td>

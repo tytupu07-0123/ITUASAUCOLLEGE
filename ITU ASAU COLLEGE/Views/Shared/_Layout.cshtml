@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using ITU_ASAU_COLLEGE.Data
+@using ITU_ASAU_COLLEGE.Models
+@inject UserManager<IdentityUser> UserManager
+@inject ITU_ASAU_COLLEGEContext DbContext
 @using ITU_ASAU_COLLEGE.Areas.Identity.Data
 
 <!DOCTYPE html>
@@ -36,7 +40,10 @@
                         <a class="nav-link text-blue" asp-area="" asp-controller="Notices" asp-action="Index">Notices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-blue" asp-area="" asp-controller="EnrollmentApplication" asp-action="Apply">Apply</a>
+                        <a class="nav-link text-blue" asp-area="" asp-controller="EnrollmentApplications" asp-action="Apply">Apply</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-blue" asp-area="" asp-controller="AboutUs" asp-action="Index">About Us</a>
                     </li>
                     </ul>
 
@@ -57,19 +64,53 @@
                                 </span>
 
                                 <!-- Logged-in user's name -->
-                                @inject UserManager<IdentityUser> UserManager
-
                                 @{
                                     var currentUser = await UserManager.GetUserAsync(User);
-                                }
-                                <span class="user-name">
-                                    @if (currentUser != null)
+                                    string displayName = "";
+
+                                    if (currentUser != null)
                                     {
-                                        @($"{Model.FirstName} {Model.LastName}")
+                                        if (User.IsInRole("Student"))
+                                        {
+                                            var student = DbContext.Student
+                                                .FirstOrDefault(s => s.Email == currentUser.Email);
+
+                                            if (student != null)
+                                            {
+                                                displayName = $"{student.FirstName} {student.LastName}";
+                                            }
+                                        }
+                                        else if (User.IsInRole("Teacher"))
+                                        {
+                                            var teacher = DbContext.Teacher
+                                                .FirstOrDefault(t => 
+                                                    t.LastName != null &&
+                                                    currentUser.Email != null &&
+                                                    currentUser.Email.ToLower() == 
+                                                        $"dr.{t.LastName.ToLower()}@IAC.edu.ws");
+
+                                            if (teacher != null)
+                                            {
+                                                displayName = $"{teacher.FirstName} {teacher.LastName}";
+                                            }
+                                        }
+                                        else if (User.IsInRole("Admin"))
+                                        {
+                                            displayName = "Administrator";
+                                        }
+
+                                        // Fallback if a name could not be found
+                                        if (string.IsNullOrWhiteSpace(displayName))
+                                        {
+                                            displayName = currentUser.Email ?? "User";
+                                        }
                                     }
+                                }
 
+                                <span class="user-name">
+                                    @displayName
                                 </span>
-
+                                
                             </a>
 
                             <!-- Dropdown -->
