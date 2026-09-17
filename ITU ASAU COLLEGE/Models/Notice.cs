@@ -3,8 +3,7 @@
 namespace ITU_ASAU_COLLEGE.Models
 {
     public class Notice
-    {
-       
+    {  
 
         public int NoticeId { get; set; }
         public DateTime Date { get; set; }

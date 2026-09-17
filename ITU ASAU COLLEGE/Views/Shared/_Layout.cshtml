@@ -82,16 +82,21 @@
                                         }
                                         else if (User.IsInRole("Teacher"))
                                         {
-                                            var teacher = DbContext.Teacher
-                                                .FirstOrDefault(t => 
-                                                    t.LastName != null &&
-                                                    currentUser.Email != null &&
-                                                    currentUser.Email.ToLower() == 
-                                                        $"dr.{t.LastName.ToLower()}@IAC.edu.ws");
-
-                                            if (teacher != null)
+                                            if (!string.IsNullOrEmpty(currentUser.Email))
                                             {
-                                                displayName = $"{teacher.FirstName} {teacher.LastName}";
+                                                var emailUsername = currentUser.Email
+                                                    .Split('@')[0]
+                                                    .Replace("dr.", "", StringComparison.OrdinalIgnoreCase);
+
+                                                var teacher = DbContext.Teacher
+                                                    .FirstOrDefault(t =>
+                                                        t.LastName != null &&
+                                                        t.LastName.ToLower() == emailUsername.ToLower());
+
+                                                if (teacher != null)
+                                                {
+                                                    displayName = $"{teacher.FirstName} {teacher.LastName}";
+                                                }
                                             }
                                         }
                                         else if (User.IsInRole("Admin"))
