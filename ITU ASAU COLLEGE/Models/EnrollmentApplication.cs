@@ -51,7 +51,7 @@ namespace ITU_ASAU_COLLEGE.Models
         
         [Required]
         [Display(Name = "Courses")]
-        public ICollection<Course> Courses { get; set; } = new List<Course>();
+        public string Courses { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Parent/Guardian Name")]

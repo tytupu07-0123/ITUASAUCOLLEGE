@@ -13,7 +13,7 @@ namespace ITU_ASAU_COLLEGE.Models
 
         [Required]
         public string Subject { get; set; } = "";
-
+        [Range(0,100)]
         public decimal Mark { get; set; }
 
         public string? Grade { get; set; }

@@ -5,7 +5,7 @@ namespace ITU_ASAU_COLLEGE.VewModels
     public class AttendanceRegisterViewModel
     {
         [Required]
-        [Dispaly(Name = "Class Name")]
+        [Display(Name = "Class Name")]
         public string ClassName { get; set; }
         [Required]
         [Display(Name = "Subject")]

@@ -1,0 +1,380 @@
+﻿@model ITU_ASAU_COLLEGE.VewModels.AttendanceRegisterViewModel
+
+@{
+    ViewData["Title"] = "AttendanceRegister";
+}
+
+<link rel="stylesheet"
+      href="~/css/attendance-register.css"
+      asp-append-version="true" />
+
+<div class="attendance-page">
+
+    <!-- Header -->
+    <div class="attendance-header">
+        <div>
+            <h1>Attendance Register</h1>
+            <p>Record student attendance for your class.</p>
+        </div>
+
+        <div class="attendance-icon">
+            📋
+        </div>
+    </div>
+
+
+    <!-- Success message -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="success-message">
+            <span class="success-icon">✓</span>
+            <span>@TempData["SuccessMessage"]</span>
+        </div>
+    }
+
+
+    <!-- Selection Card -->
+    <div class="selection-card">
+
+        <div class="section-title">
+            <h2>Attendance Details</h2>
+            <p>Select the class, subject and date.</p>
+        </div>
+
+        <form asp-action="Register"
+              method="get">
+
+            <div class="selection-grid">
+
+                <!-- Class -->
+                <div class="form-group">
+                    <label asp-for="ClassName">
+                        Class
+                    </label>
+
+                    <select asp-for="ClassName"
+                            class="form-control">
+
+                        <option value="">
+                            Select Class
+                        </option>
+
+                        <option value="Yr9">
+                            Yr 9
+                        </option>
+
+                        <option value="Yr10">
+                            Yr 10
+                        </option>
+
+                        <option value="Yr11">
+                            Yr 11
+                        </option>
+
+                        <option value="Yr12">
+                            Yr 12
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="ClassName"
+                          class="validation-message">
+                    </span>
+                </div>
+
+
+                <!-- Subject -->
+                <div class="form-group">
+
+                    <label asp-for="Subject">
+                        Subject
+                    </label>
+
+                    <input asp-for="Subject"
+                           class="form-control"
+                           placeholder="e.g. Mathematics" />
+
+                    <span asp-validation-for="Subject"
+                          class="validation-message">
+                    </span>
+
+                </div>
+
+
+                <!-- Date -->
+                <div class="form-group">
+
+                    <label asp-for="Date">
+                        Date
+                    </label>
+
+                    <input asp-for="Date"
+                           type="date"
+                           class="form-control" />
+
+                    <span asp-validation-for="Date"
+                          class="validation-message">
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="selection-actions">
+
+                <button type="submit"
+                        class="load-button">
+
+                    Load Students
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    @if (Model.Students.Any())
+    {
+        <!-- Register Card -->
+        <div class="register-card">
+
+            <div class="register-top">
+
+                <div>
+                    <h2>
+                        @Model.ClassName Attendance
+                    </h2>
+
+                    <p>
+                        @Model.Subject
+                        &nbsp; • &nbsp;
+                        @Model.Date.ToString("dd MMMM yyyy")
+                    </p>
+                </div>
+
+
+                <button type="button"
+                        id="markAllPresent"
+                        class="present-all-button">
+
+                    ✓ Mark All Present
+
+                </button>
+
+            </div>
+
+
+            <!-- Attendance Form -->
+            <form asp-action="Register"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       asp-for="ClassName" />
+
+                <input type="hidden"
+                       asp-for="Subject" />
+
+                <input type="hidden"
+                       asp-for="Date" />
+
+
+                <div class="table-wrapper">
+
+                    <table class="attendance-table">
+
+                        <thead>
+
+                            <tr>
+                                <th class="number-column">
+                                    #
+                                </th>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th class="status-column">
+                                    Attendance
+                                </th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            @for (int i = 0;
+                                  i < Model.Students.Count;
+                                  i++)
+                            {
+                                <tr>
+
+                                    <td class="student-number">
+                                        @(i + 1)
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="hidden"
+                                               asp-for="Students[i].StudentId" />
+
+                                        <input type="hidden"
+                                               asp-for="Students[i].StudentName" />
+
+                                        <div class="student-info">
+
+                                            <div class="student-avatar">
+                                                @Model.Students[i].StudentName
+                                                .Substring(0, 1)
+                                                .ToUpper()
+                                            </div>
+
+                                            <span>
+                                                @Model.Students[i].StudentName
+                                            </span>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="attendance-options">
+
+                                            <!-- Present -->
+                                            <label class="attendance-option present-option">
+
+                                                <input type="radio"
+                                                       asp-for="Students[i].IsPresent"
+                                                       value="true" />
+
+                                                <span>
+                                                    ✓ Present
+                                                </span>
+
+                                            </label>
+
+
+                                            <!-- Absent -->
+                                            <label class="attendance-option absent-option">
+
+                                                <input type="radio"
+                                                       asp-for="Students[i].IsPresent"
+                                                       value="false" />
+
+                                                <span>
+                                                    ✕ Absent
+                                                </span>
+
+                                            </label>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Bottom -->
+                <div class="register-footer">
+
+                    <div class="student-count">
+
+                        <strong>
+                            @Model.Students.Count
+                        </strong>
+
+                        students
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="save-button">
+
+                        <span>✓</span>
+                        Save Attendance
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    }
+    else if (!string.IsNullOrWhiteSpace(Model.ClassName))
+    {
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h3>No students found</h3>
+
+            <p>
+                There are currently no students enrolled
+                in @Model.ClassName.
+            </p>
+
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                👩‍🏫
+            </div>
+
+            <h3>Ready to take attendance?</h3>
+
+            <p>
+                Select a class, subject and date above
+                to load your students.
+            </p>
+
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        document
+            .getElementById("markAllPresent")
+            ?.addEventListener("click", function () {
+
+                const presentButtons =
+                    document.querySelectorAll(
+                        'input[type="radio"][value="true"]'
+                    );
+
+                presentButtons.forEach(function (button) {
+                    button.checked = true;
+                });
+
+            });
+
+    </script>
+}

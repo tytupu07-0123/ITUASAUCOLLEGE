@@ -1,0 +1,445 @@
+﻿/* =========================================================
+   ATTENDANCE REGISTER
+   ========================================================= */
+
+.attendance-page {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px 50px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+    .attendance-header h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .attendance-header p {
+        margin: 7px 0 0;
+        color: #6b7280;
+        font-size: 15px;
+    }
+
+.attendance-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf3ff;
+    font-size: 26px;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.success-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ecfdf3;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 13px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.success-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   SELECTION CARD
+   ========================================================= */
+
+.selection-card,
+.register-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 22px;
+}
+
+.selection-card {
+    padding: 25px;
+}
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+    .section-title h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #1f2937;
+    }
+
+    .section-title p {
+        margin: 5px 0 0;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-group label {
+        margin-bottom: 7px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #374151;
+    }
+
+.form-control {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+    }
+
+.validation-message {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.selection-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.load-button {
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    padding: 11px 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .load-button:hover {
+        background: #1d4ed8;
+    }
+
+
+/* =========================================================
+   REGISTER
+   ========================================================= */
+
+.register-top {
+    padding: 22px 25px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .register-top h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #1f2937;
+    }
+
+    .register-top p {
+        margin: 5px 0 0;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+.present-all-button {
+    border: 1px solid #bbf7d0;
+    background: #f0fdf4;
+    color: #15803d;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .present-all-button:hover {
+        background: #dcfce7;
+    }
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .attendance-table th {
+        background: #f8fafc;
+        color: #64748b;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-weight: 700;
+        padding: 13px 20px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .attendance-table td {
+        padding: 14px 20px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    .attendance-table tbody tr:hover {
+        background: #fafcff;
+    }
+
+.number-column {
+    width: 60px;
+}
+
+.status-column {
+    width: 330px;
+}
+
+.student-number {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   STUDENT
+   ========================================================= */
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.student-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #eaf3ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ATTENDANCE OPTIONS
+   ========================================================= */
+
+.attendance-options {
+    display: flex;
+    gap: 10px;
+}
+
+.attendance-option {
+    cursor: pointer;
+}
+
+    .attendance-option input {
+        display: none;
+    }
+
+    .attendance-option span {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s;
+    }
+
+
+/* Present */
+
+.present-option span {
+    color: #15803d;
+    background: #f0fdf4;
+}
+
+.present-option input:checked + span {
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+}
+
+
+/* Absent */
+
+.absent-option span {
+    color: #b91c1c;
+    background: #fef2f2;
+}
+
+.absent-option input:checked + span {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.register-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background: #f8fafc;
+    border-radius: 0 0 14px 14px;
+}
+
+.student-count {
+    color: #64748b;
+    font-size: 14px;
+}
+
+    .student-count strong {
+        color: #1f2937;
+    }
+
+.save-button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    padding: 11px 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .save-button:hover {
+        background: #1d4ed8;
+    }
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    text-align: center;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 60px 20px;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+    color: #1f2937;
+}
+
+.empty-state p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .selection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .status-column {
+        width: auto;
+    }
+
+    .attendance-options {
+        flex-direction: column;
+    }
+
+    .register-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .save-button {
+        width: 100%;
+    }
+
+    .present-all-button {
+        width: 100%;
+    }
+}

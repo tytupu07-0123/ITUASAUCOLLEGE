@@ -51,10 +51,17 @@
                 </p>
 
                 <a asp-controller="Results"
-                   asp-action="Index"
+                   asp-action="GradeBook"
                    class="btn btn-success">
 
-                    Manage Results
+                    <div class="dashboard-card-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h3>Result</h3>
+                        <p>Manage student results</p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -69,14 +76,22 @@
                     Record attendance for each class.
                 </p>
 
-                <a asp-controller="Attendance"
-                   asp-action="Index"
+                <a asp-controller="Attendances"
+                   asp-action="Register"
                    class="btn btn-warning">
 
-                    Record Attendance
+                    <div class="dashboard-card-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h3>Attendance</h3>
+                        <p>Record student attendance</p>
+                    </div>
                 </a>
             </div>
         </div>
+        
 
     </div>
 
