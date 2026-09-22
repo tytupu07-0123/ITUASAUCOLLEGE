@@ -92,18 +92,23 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <a asp-controller="Attendances"
-           asp-action="Register"
-           class="btn btn-warning">
-
-            <div class="dashboard-card-icon">
-                📋
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                     <h5 class="card-title">Record Attendance</h5>
+                     <p class="card-text">Record and manage student attendance.</p>
+                     <a href="@Url.Action("Index", "Attendances")" class="btn btn-primary">View Attendances</a>
             </div>
-
-            <div>
-                <h3>Attendance</h3>
-                <p>Record student attendance</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                     <h5 class="card-title">Record Results</h5>
+                     <p class="card-text">Add, edit, and view student results.</p>
+                     <a href="@Url.Action("Index", "Results")" class="btn btn-primary">View Results</a>
             </div>
-        </a>
+        </div>
     </div>
 </div>

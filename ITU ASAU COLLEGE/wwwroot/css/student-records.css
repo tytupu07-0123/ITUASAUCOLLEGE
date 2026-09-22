@@ -1,0 +1,197 @@
+﻿.student-records-page {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+/* Header */
+
+.student-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+    .student-page-header h1 {
+        margin: 0;
+        color: #163a5f;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .student-page-header p {
+        margin: 6px 0 0;
+        color: #6b7280;
+    }
+
+.back-button {
+    padding: 10px 18px;
+    border: 1px solid #d6dee8;
+    border-radius: 8px;
+    background: white;
+    color: #163a5f;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+    .back-button:hover {
+        background: #edf4fa;
+        color: #163a5f;
+    }
+
+/* Card */
+
+.records-card {
+    background: white;
+    border: 1px solid #dce5ee;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.records-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 25px;
+    border-bottom: 1px solid #e5eaf0;
+}
+
+    .records-card-header h2 {
+        margin: 0;
+        color: #163a5f;
+        font-size: 21px;
+    }
+
+    .records-card-header p {
+        margin: 5px 0 0;
+        color: #718096;
+        font-size: 14px;
+    }
+
+.record-count {
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #eaf3fb;
+    color: #1f5f8b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Table */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.student-records-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .student-records-table th {
+        padding: 14px 20px;
+        background: #f5f8fb;
+        border-bottom: 1px solid #dce5ee;
+        color: #536273;
+        font-size: 13px;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .student-records-table td {
+        padding: 16px 20px;
+        border-bottom: 1px solid #edf1f5;
+        color: #405266;
+    }
+
+    .student-records-table tbody tr:hover {
+        background: #fafcfe;
+    }
+
+/* Badges */
+
+.mark-badge,
+.grade-badge,
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.mark-badge {
+    background: #f0f5f9;
+    color: #36566f;
+}
+
+.grade-badge {
+    min-width: 34px;
+    background: #eaf3fb;
+    color: #1f5f8b;
+}
+
+.status-badge.present {
+    background: #e8f6ed;
+    color: #287044;
+}
+
+.status-badge.absent {
+    background: #fff0f0;
+    color: #b33a3a;
+}
+
+/* Empty state */
+
+.empty-records {
+    padding: 55px 25px;
+    border: 1px solid #dce5ee;
+    border-radius: 12px;
+    background: white;
+    text-align: center;
+}
+
+.empty-icon {
+    margin-bottom: 12px;
+    font-size: 42px;
+}
+
+.empty-records h2 {
+    margin: 0 0 8px;
+    color: #26384a;
+}
+
+.empty-records p {
+    margin: 0;
+    color: #718096;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+
+    .student-records-page {
+        padding: 15px;
+    }
+
+    .student-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+        .student-page-header h1 {
+            font-size: 27px;
+        }
+
+    .records-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+}

@@ -22,8 +22,30 @@
         </div>
     </div>
    
-    <a asp-controller="Results" asp-action="Index" class="btn btn-secondary">View Results</a>
-    <a asp-controller="Attendances" asp-action="Index" class="btn btn-success">View Attendance</a>
+    <a asp-controller="StudentRecords"
+   asp-action="MyAttendance"
+   class="dashboard-card">
+
+    <div class="dashboard-card-icon">📅</div>
+
+    <div>
+        <h3>My Attendance</h3>
+        <p>View your attendance history.</p>
+    </div>
+
+</a>
+<a asp-controller="StudentRecords"
+   asp-action="MyResults"
+   class="dashboard-card">
+
+    <div class="dashboard-card-icon">📊</div>
+
+    <div>
+        <h3>My Results</h3>
+        <p>View your academic results and grades.</p>
+    </div>
+
+</a>
 </div>
 <style>
     .h1 {

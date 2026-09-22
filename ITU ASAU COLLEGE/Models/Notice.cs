@@ -1,4 +1,5 @@
 ﻿using ITU_ASAU_COLLEGE.Controllers;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ITU_ASAU_COLLEGE.Models
@@ -7,19 +8,22 @@ namespace ITU_ASAU_COLLEGE.Models
     {  
 
         public int NoticeId { get; set; }
+
+        [Required]
         public DateTime Date { get; set; }
 
         [Required]
         //Data Annotations to not allow more than 100 characters in the description
         [StringLength(100)]
-        public string NoticesTitle { get; set; }
+        [DisplayName("Notice Title")]
+        public required string NoticesTitle { get; set; }
 
         [Required]
         //Datat Annotations to not allow more than 1000 characters in the description
         [StringLength(1000)]
-        public string NoticeDescription { get; set; }
+        [DisplayName("Notice Description")]
+        public required string NoticeDescription { get; set; }
         
-        public Teacher Teacher { get; set; }
-        public string? PostedBy { get; set; }
+        public string? PostedBy { get; set; } = "Admin";
     }
 }

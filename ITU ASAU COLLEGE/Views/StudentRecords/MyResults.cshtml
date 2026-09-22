@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ITU_ASAU_COLLEGE.Models.Result>
+
+@{
+    ViewData["Title"] = "My Results";
+}
+
+<link rel="stylesheet" href="~/css/student-records.css" />
+
+<div class="student-records-page">
+
+    <div class="student-page-header">
+        <div>
+            <h1>My Results</h1>
+            <p>View your academic results and grades.</p>
+        </div>
+
+        <a asp-controller="StudentsDashboard"
+           asp-action="Index"
+           class="back-button">
+            ← Dashboard
+        </a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="records-card">
+
+            <div class="records-card-header">
+                <div>
+                    <h2>Academic Results</h2>
+                    <p>Your recorded assessment results</p>
+                </div>
+
+                <span class="record-count">
+                    @Model.Count() Results
+                </span>
+            </div>
+
+            <div class="table-container">
+
+                <table class="student-records-table">
+
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Assessment</th>
+                            <th>Mark</th>
+                            <th>Grade</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@result.Subject</strong>
+                                </td>
+
+                                <td>
+                                    @(result.AssessmentType ?? "Not specified")
+                                </td>
+
+                                <td>
+                                    <span class="mark-badge">
+                                        @result.Mark.ToString("0.##") / 100
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="grade-badge">
+                                        @(result.Grade ?? "—")
+                                    </span>
+                                </td>
+
+                                <td>
+                                    @result.Date.ToString("dd MMM yyyy")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="empty-records">
+            <div class="empty-icon">📊</div>
+
+            <h2>No Results Available</h2>
+
+            <p>
+                Your academic results have not been recorded yet.
+            </p>
+        </div>
+    }
+
+</div>

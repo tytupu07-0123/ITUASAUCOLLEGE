@@ -22,7 +22,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Details/5
-    [Authorize(Roles = "Admin,Teacher")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Details(int? noticeid)
     {
         if (noticeid == null)
@@ -41,7 +41,7 @@ public class NoticesController : Controller
     }
 
     // GET: NOTICES/Create
-    [Authorize (Roles="Admin,Teacher")]
+    [Authorize (Roles="Admin")]
     public IActionResult Create()
     {
         return View();
@@ -57,7 +57,8 @@ public class NoticesController : Controller
     {
         if (ModelState.IsValid)
         {
-            notice.PostedBy = User.Identity.Name; // Set the PostedBy property to the current user's name
+            notice.PostedBy = "Admin";
+            notice.Date = DateTime.Now;
             _context.Add(notice);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

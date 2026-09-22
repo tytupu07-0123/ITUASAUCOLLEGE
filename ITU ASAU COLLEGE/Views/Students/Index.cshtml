@@ -96,8 +96,8 @@
                     <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
-                    <a asp-controller="Attendance" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-warning">Attendance</a>
-                    <a asp-controller="Result" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-info">Results</a>
+                    <a asp-controller="Attendances" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-warning">Attendances</a>
+                    <a asp-controller="Results" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-info">Results</a>
                 </span>
                 }
             </td>
