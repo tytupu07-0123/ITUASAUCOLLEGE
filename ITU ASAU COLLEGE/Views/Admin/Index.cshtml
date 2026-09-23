@@ -3,8 +3,7 @@
 }
 <h1>Admin Dashboard</h1>
 
-<div class="row">
-   <div class="col-md-4">
+ <div class="col-md-4">
     <div class="card mb-4 shadow-sm">
         <div class="card-body">
             <h5 class="card-title">Manage Students</h5>
@@ -12,17 +11,17 @@
             <a href="@Url.Action("Index", "Students")" class="btn btn-primary">Go to Students</a>
         </div>
     </div>
-</div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Manage Attendances</h5>
-                    <p class="card-text">Add, edit, or remove attendance records.</p>
-                    <a href="@Url.Action("Index", "Attendances")" class="btn btn-primary">Go to Attendances</a>
-                </div>
+ </div>
+ <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+           <div class="card-body">
+               <h5 class="card-title">Manage Attendances</h5>
+               <p class="card-text">Add, edit, or remove attendance records.</p>
+               <a href="@Url.Action("Index", "Attendances")" class="btn btn-primary">Go to Attendances</a>
             </div>
-        </div>
+      </div>
+ </div>
+   
 <div class="col-md-4">
     <div class="card mb-4 shadow-sm">
         <div class="card-body">
@@ -68,47 +67,39 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-                     <h5 class="card-title">Manage Results</h5>
-                     <p class="card-text">Add, edit student Results.</p>
-                     <a href="@Url.Action("Index", "Results")" class="btn btn-primary">Go to Results</a>
-            </div>
+<div class="col-md-4">
+   <div class="card mb-4 shadow-sm">
+       <div class="card-body">
+           <h5 class="card-title">Manage Results</h5>
+            <p class="card-text">Add, edit student Results.</p>
+            <a href="@Url.Action("Index", "Results")" class="btn btn-primary">Go to Results</a>
+       </div>
+   </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+             <h5 class="card-title">Manage Enrolment Applications</h5>
+             <p class="card-text">Reject, Accept Enrolment Applications.</p>
+             <a href="@Url.Action("AdminApplications", "EnrollmentApplications")" class="btn btn-primary">View Applications</a>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-                     <h5 class="card-title">Manage Enrolment Applications</h5>
-                     <p class="card-text">Reject, Accept Enrolment Applications.</p>
-                     <a href="@Url.Action("AdminApplications", "EnrollmentApplications")" class="btn btn-primary">View Applications</a>
-            </div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+             <h5 class="card-title">Record Attendance</h5>
+             <p class="card-text">Record and manage student attendance.</p>
+             <a href="@Url.Action("Index", "Attendances")" class="btn btn-primary">View Attendances</a>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-                     <h5 class="card-title">Record Attendance</h5>
-                     <p class="card-text">Record and manage student attendance.</p>
-                     <a href="@Url.Action("Index", "Attendances")" class="btn btn-primary">View Attendances</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-                     <h5 class="card-title">Record Results</h5>
-                     <p class="card-text">Add, edit, and view student results.</p>
-                     <a href="@Url.Action("Index", "Results")" class="btn btn-primary">View Results</a>
-            </div>
-        </div>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+         <div class="card-body">
+              <h5 class="card-title">Record Results</h5>
+              <p class="card-text">Add, edit, and view student results.</p>
+              <a href="@Url.Action("Index", "Results")" class="btn btn-primary">View Results</a>
+         </div>
     </div>
 </div>
