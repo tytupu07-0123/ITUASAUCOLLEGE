@@ -39,8 +39,9 @@ namespace ITU_ASAU_COLLEGE.Models
         public int EnrollmentId { get; set; }
         [ForeignKey("Course")]
         public int ?CourseId { get; set; }
+        [Required]
         [ForeignKey("Student")]
-        public int ?StudentId { get; set; }
+        public int StudentId { get; set; }
         public DateTime EnrollmentDate { get; set; }
         [Display(Name = "Course Name")]
         public required CourseName CourseName { get; set; }

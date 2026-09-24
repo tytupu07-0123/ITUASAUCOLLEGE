@@ -49,7 +49,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Attendance", (string)null);
+                    b.ToTable("Attendance");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Course", b =>
@@ -74,7 +74,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Course", (string)null);
+                    b.ToTable("Course");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Department", b =>
@@ -105,7 +105,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Enrollment", b =>
@@ -125,7 +125,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("StudentId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("EnrollmentId");
@@ -134,7 +134,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Enrollment", (string)null);
+                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.EnrollmentApplication", b =>
@@ -198,7 +198,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasKey("EnrollmentApplicationId");
 
-                    b.ToTable("EnrollmentApplications", (string)null);
+                    b.ToTable("EnrollmentApplications");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Notice", b =>
@@ -225,14 +225,14 @@ namespace ITU_ASAU_COLLEGE.Migrations
                     b.Property<string>("PostedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("NoticeId");
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Notice", (string)null);
+                    b.ToTable("Notice");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Result", b =>
@@ -266,7 +266,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Result", (string)null);
+                    b.ToTable("Result");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Student", b =>
@@ -311,7 +311,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("ResultId");
 
-                    b.ToTable("Student", (string)null);
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Teacher", b =>
@@ -347,7 +347,7 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Teacher", (string)null);
+                    b.ToTable("Teacher");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -578,7 +578,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
                     b.HasOne("ITU_ASAU_COLLEGE.Models.Student", "Student")
                         .WithMany("Enrollments")
-                        .HasForeignKey("StudentId");
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Course");
 
@@ -587,13 +589,9 @@ namespace ITU_ASAU_COLLEGE.Migrations
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Notice", b =>
                 {
-                    b.HasOne("ITU_ASAU_COLLEGE.Models.Teacher", "Teacher")
+                    b.HasOne("ITU_ASAU_COLLEGE.Models.Teacher", null)
                         .WithMany("Notice")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Teacher");
+                        .HasForeignKey("TeacherId");
                 });
 
             modelBuilder.Entity("ITU_ASAU_COLLEGE.Models.Result", b =>

@@ -16,6 +16,8 @@ namespace ITU_ASAU_COLLEGE.Models
     {
         public int EnrollmentApplicationId { get; set; }
 
+
+
         [Required]
         [StringLength(100)]
         [Display(Name = "First Name")]

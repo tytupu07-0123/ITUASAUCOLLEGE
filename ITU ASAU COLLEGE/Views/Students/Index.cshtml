@@ -72,14 +72,15 @@
             <td>
                 @Html.DisplayFor(model => item.DateOfBirth)
             </td>
-            <td>
-                    
+                <td>
                     @if (item.Enrollments != null && item.Enrollments.Any())
                     {
-                        <ul>
+                        <ul class="mb-0">
                             @foreach (var enrollment in item.Enrollments)
                             {
-                                <li>@enrollment.CourseName</li>
+                                <li>
+                                    @enrollment.CourseName
+                                </li>
                             }
                         </ul>
                     }
@@ -87,8 +88,7 @@
                     {
                         <span>No Enrollments</span>
                     }
-                    
-            </td>
+                </td>
             <td>
                 @if (User.IsInRole("Admin"))
                 {
@@ -96,8 +96,8 @@
                     <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
-                    <a asp-controller="Attendances" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-warning">Attendances</a>
-                    <a asp-controller="Results" asp-action="Create" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-info">Results</a>
+                    <a asp-controller="Attendances" asp-action="Details" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-warning">Attendances</a>
+                    <a asp-controller="Results" asp-action="Details" asp-route-studentId="@item.StudentId" class="btn btn-sm btn-info">Results</a>
                 </span>
                 }
             </td>

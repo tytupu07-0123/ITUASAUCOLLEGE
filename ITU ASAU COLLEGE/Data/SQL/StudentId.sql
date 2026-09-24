@@ -1,3 +1,3 @@
 ﻿SELECT *
-FROM Student
-WHERE StudentId = 1;
+FROM Enrollment
+WHERE StudentId IS  NULL;
